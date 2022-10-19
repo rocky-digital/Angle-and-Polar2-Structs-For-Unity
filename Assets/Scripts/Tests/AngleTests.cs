@@ -22,6 +22,22 @@ public class AngleTests
     //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
     [Test]
+    public void PropertySigned()
+    {
+        // Test setting positive angles
+        Angle angle1 = new() { Degrees = 10f };
+        Assert.AreEqual(10f, angle1.Signed.Degrees);
+
+        // Test setting negative angles
+        angle1.Degrees = 315f;
+        Assert.AreEqual(-45f, angle1.Signed.Degrees);
+
+        // Test setting angles greater than 360 degrees
+        angle1.Degrees = 765f;
+        Assert.AreEqual(45f, angle1.Unsigned.Degrees);
+    }
+
+    [Test]
     public void PropertyUnsigned()
     {
         // Test setting positive angles
@@ -37,21 +53,6 @@ public class AngleTests
         Assert.AreEqual(0, angle1.Unsigned.Degrees);
     }
 
-    [Test]
-    public void PropertySigned()
-    {
-        // Test setting positive angles
-        Angle angle1 = new() { Degrees = 10f };
-        Assert.AreEqual(10f, angle1.Signed.Degrees);
-
-        // Test setting negative angles
-        angle1.Degrees = 315f;
-        Assert.AreEqual(-45f, angle1.Signed.Degrees);
-
-        // Test setting angles greater than 360 degrees
-        angle1.Degrees = 765f;
-        Assert.AreEqual(45f, angle1.Unsigned.Degrees);
-    }
 
     [Test]
     public void MethodToString()

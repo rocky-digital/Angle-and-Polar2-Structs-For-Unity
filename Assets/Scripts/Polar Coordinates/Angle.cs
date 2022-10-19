@@ -62,18 +62,6 @@ public struct Angle : IEquatable<Angle>
     // Read Only Properties:
     //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-    /// <summary> Returns an effectively equivalent Angle in the unsigned interval [0, 360) degrees (Read Only). 
-    /// Be wary using this with arithmetic operators. For example, -90 and 270 are equivalent degrees when Unsigned, but -90 * 2 is not equal to 270 * 2. </summary>
-    public Angle Unsigned
-    {
-        get
-        {
-            Angle unsignedAngle = this;
-            unsignedAngle.MapToUnsignedInterval();
-            return unsignedAngle;
-        }
-    }
-
     /// <summary> Returns an effectively equivalent Angle in the signed interval (-180, 180] degrees or (-pi, pi] radians (Read Only). 
     /// Be wary using this with arithmetic operators. For example, -90 and 270 are equivalent degrees when Signed, but -90 * 2 is not equal to 270 * 2. </summary>
     public Angle Signed
@@ -86,16 +74,20 @@ public struct Angle : IEquatable<Angle>
         }
     }
 
+    /// <summary> Returns an effectively equivalent Angle in the unsigned interval [0, 360) degrees (Read Only). 
+    /// Be wary using this with arithmetic operators. For example, -90 and 270 are equivalent degrees when Unsigned, but -90 * 2 is not equal to 270 * 2. </summary>
+    public Angle Unsigned
+    {
+        get
+        {
+            Angle unsignedAngle = this;
+            unsignedAngle.MapToUnsignedInterval();
+            return unsignedAngle;
+        }
+    }
+
     // Public Methods:
     //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-    /// <summary> Maps this Angle in to the interval [0, 360) degrees or [0, 2pi) radians. </summary>
-    public void MapToUnsignedInterval()
-    {
-        Degrees %= 360f;
-        if (Degrees < 0)
-            Degrees += 360f;
-    }
 
     /// <summary> Maps this Angle to the signed interval (-180, 180] degrees or (-pi, pi] radians. </summary> 
     public void MapToSignedInterval()
@@ -107,13 +99,21 @@ public struct Angle : IEquatable<Angle>
             Degrees -= 360f;
     }
 
-    /// <summary> Returns true if the angles are equal. Use this comparison method for better performance. </summary>
+    /// <summary> Maps this Angle in to the interval [0, 360) degrees or [0, 2pi) radians. </summary>
+    public void MapToUnsignedInterval()
+    {
+        Degrees %= 360f;
+        if (Degrees < 0)
+            Degrees += 360f;
+    }
+
+    /// <summary> Returns true if the Angles are equal. Use this comparison method for better performance. </summary>
     public bool Equals(Angle other)
     {
         return Degrees == other.Degrees;
     }
 
-    /// <summary> Returns true if the angles are equal. </summary> 
+    /// <summary> Returns true if the Angles are equal. </summary> 
     public override bool Equals(object other)
     {
         if (!(other is Angle))
@@ -137,68 +137,68 @@ public struct Angle : IEquatable<Angle>
     // Arithmetic Operators:
     //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-    /// <summary> Adds an addend angle to an augend angle. </summary>
+    /// <summary> Adds an addend Angle to an augend Angle. </summary>
     public static Angle operator +(Angle augend, Angle addend)
     { return new() { Degrees = augend.Degrees + addend.Degrees }; }
 
-    /// <summary> Subtracts a subtrahend angle from a minuend angle. </summary>
+    /// <summary> Subtracts a subtrahend Angle from a minuend Angle. </summary>
     public static Angle operator -(Angle minuend, Angle subtrahend)
     { return new() { Degrees = minuend.Degrees - subtrahend.Degrees }; }
 
-    /// <summary> Negates an angle, returning a counter rotation. Negating an unsigned angle returns the conjugate angle.  </summary>
+    /// <summary> Negates an Angle, returning a counter rotation. Negating an unsigned Angle returns the conjugate Angle.  </summary>
     public static Angle operator -(Angle angle)
     { return new() { Degrees = -angle.Degrees }; }
 
-    /// <summary> Multiplies a multiplicand angle by a multiplier angle. </summary>
+    /// <summary> Multiplies a multiplicand Angle by a multiplier Angle. </summary>
     public static Angle operator *(Angle multiplicand, Angle multiplier)
     { return new() { Degrees = multiplicand.Degrees * multiplier.Degrees }; }
 
-    /// <summary> Multiplies a multiplicand angle by a multiplier number. </summary>
+    /// <summary> Multiplies a multiplicand Angle by a multiplier number. </summary>
     public static Angle operator *(Angle multiplicand, float multiplier)
     { return new() { Degrees = multiplicand.Degrees * multiplier }; }
 
-    /// <summary> Multiplies a multiplicand number by a multiplier angle. </summary>
+    /// <summary> Multiplies a multiplicand number by a multiplier Angle. </summary>
     public static Angle operator *(float multiplicand, Angle multiplier)
     { return new() { Degrees = multiplicand * multiplier.Degrees }; }
 
-    /// <summary> Divides a dividend angle by a divisor angle. </summary>
+    /// <summary> Divides a dividend Angle by a divisor Angle. </summary>
     public static Angle operator /(Angle dividend, Angle divisor)
     { return new() { Degrees = dividend.Degrees / divisor.Degrees }; }
 
-    /// <summary> Divides an dividend angle by a divisor number. </summary>
+    /// <summary> Divides an dividend Angle by a divisor number. </summary>
     public static Angle operator /(Angle dividend, float divisor)
     { return new() { Degrees = dividend.Degrees / divisor }; }
 
-    /// <summary> Computes the remainder of a division by a dividend angle by an divisor angle. </summary>
+    /// <summary> Computes the remainder of a division by a dividend Angle by an divisor Angle. </summary>
     public static Angle operator %(Angle dividend, Angle divisor)
     { return new() { Degrees = dividend.Degrees % divisor.Degrees }; }
 
     // Comparison Operators:
     //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-    /// <summary> Returns true if the angles are equal. </summary>
-    public static bool operator ==(Angle lhs, Angle rhs)
-    { return (lhs.Degrees - rhs.Degrees) == 0; }
+    /// <summary> Returns true if the Angles are equal. </summary>
+    public static bool operator ==(Angle left, Angle right)
+    { return (left.Degrees - right.Degrees) == 0; }
 
-    /// <summary> Returns true if the angles are not equal. </summary>
-    public static bool operator !=(Angle lhs, Angle rhs)
-    { return (lhs.Degrees - rhs.Degrees) != 0; }
+    /// <summary> Returns true if the Angles are not equal. </summary>
+    public static bool operator !=(Angle left, Angle right)
+    { return (left.Degrees - right.Degrees) != 0; }
 
     /// <summary> Returns true if the left-hand angle is less than the right-hand angle. </summary>
-    public static bool operator <(Angle lhs, Angle rhs)
-    { return lhs.Degrees < rhs.Degrees; }
+    public static bool operator <(Angle left, Angle right)
+    { return left.Degrees < right.Degrees; }
 
     /// <summary> Returns true if the left-hand angle is less than or equal to the right-hand angle. </summary>
-    public static bool operator <=(Angle lhs, Angle rhs)
-    { return lhs.Degrees <= rhs.Degrees; }
+    public static bool operator <=(Angle left, Angle right)
+    { return left.Degrees <= right.Degrees; }
 
     /// <summary> Returns true if the left-hand angle is greater than the right-hand angle. </summary>
-    public static bool operator >(Angle lhs, Angle rhs)
-    { return lhs.Degrees > rhs.Degrees; }
+    public static bool operator >(Angle left, Angle right)
+    { return left.Degrees > right.Degrees; }
 
     /// <summary> Returns true if the left-hand angle is greater than or equal to the right-hand angle. </summary>
-    public static bool operator >=(Angle lhs, Angle rhs)
-    { return lhs.Degrees >= rhs.Degrees; }
+    public static bool operator >=(Angle left, Angle right)
+    { return left.Degrees >= right.Degrees; }
 
     // Conversion Operators:
     //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -245,7 +245,7 @@ public struct Angle : IEquatable<Angle>
         return from + (alpha * (to - from));
     }
 
-    /// <summary> Subtracts a subtrahend angle from a minuend angle and returns the smallest signed Angle difference. </summary>
+    /// <summary> Subtracts a subtrahend Angle from a minuend Angle and returns the smallest signed Angle difference. </summary>
     public static Angle SmallestSignedDifference(Angle minuend, Angle subtrahend)
     {
         return (minuend - subtrahend).Signed;
