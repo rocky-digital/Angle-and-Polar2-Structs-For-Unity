@@ -3,19 +3,20 @@ using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
+// using UnityEngine.Assertions;
 
 public class AngleTests
 {
     // Component Properties:
     //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    // This tolerance was chosen because most angles will be displayed on the HUD with two decimal places.
+    public float tolerance = 0.01f;
 
     [Test]
-    public void PropertyDegrees()
+    public void PropertyRadians()
     {
-        Angle angle1 = new() { Degrees = 1f };
-        Assert.AreEqual(1f, angle1.Degrees);
-        angle1.Degrees = -1f;
-        Assert.AreEqual(-1f, angle1.Degrees);
+        Angle angle1 = Angle.Full;
+        UnityEngine.Assertions.Assert.AreApproximatelyEqual(6.28f, angle1.Radians, tolerance);
     }
 
     // Read Only Properties:
@@ -53,6 +54,9 @@ public class AngleTests
         Assert.AreEqual(0, angle1.Unsigned.Degrees);
     }
 
+    // Public Methods:
+    //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 
     [Test]
     public void MethodToString()
@@ -60,6 +64,20 @@ public class AngleTests
         Angle angle1 = new() { Degrees = 360f };
         Assert.AreEqual("360 degrees", angle1.ToString());
     }
+
+
+    // Arithmetic Operators:
+    //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+    // Comparison Operators:
+    //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    // Conversion Operators:
+    //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    // Static Methods:
+    //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 
