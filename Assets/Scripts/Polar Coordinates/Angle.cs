@@ -218,20 +218,20 @@ public struct Angle : IEquatable<Angle>
     // Static Properties:
     //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-    /// <summary> Shorthand for writing Angle() { Degrees = 0 }; </summary>
-    public static Angle zero
+    /// <summary> Shorthand for writing new Angle() { Degrees = 0 }; </summary>
+    public static Angle Zero
     { get => new() { Degrees = 0 }; }
 
-    /// <summary> Shorthand for writing Angle() { Degrees = 90f }; </summary>
-    public static Angle right
+    /// <summary> Shorthand for writing new Angle() { Degrees = 90f }; </summary>
+    public static Angle Right
     { get => new() { Degrees = 90f }; }
 
-    /// <summary> Shorthand for writing Angle() { Degrees = 180f }; </summary>
-    public static Angle straight
+    /// <summary> Shorthand for writing new Angle() { Degrees = 180f }; </summary>
+    public static Angle Straight
     { get => new() { Degrees = 180f }; }
 
-    /// <summary> Shorthand for writing Angle() { Degrees = 360f }; </summary>
-    public static Angle full
+    /// <summary> Shorthand for writing new Angle() { Degrees = 360f }; </summary>
+    public static Angle Full
     { get => new() { Degrees = 360f }; }
 
     // Static Methods:
