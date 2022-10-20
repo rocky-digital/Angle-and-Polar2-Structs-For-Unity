@@ -14,31 +14,30 @@ public class AngleTests
 
     [Test] public void PropertyRadians()
     {
-        Angle angle1 = Angle.Full;
+        Angle angle1 = new() { Radians = 2 * Mathf.PI };
         UnityEngine.Assertions.Assert.AreApproximatelyEqual(6.28f, angle1.Radians, tolerance);
     }
 
     [Test] public void PropertyArcminutes()
     {
-        Angle angle1 = Angle.Full;
+        Angle angle1 = new() { Arcminutes = 21600f };
         UnityEngine.Assertions.Assert.AreApproximatelyEqual(21600f, angle1.Arcminutes, tolerance);
     }
 
     [Test] public void PropertyArcseconds()
     {
-        // 1296000
-        Angle angle1 = Angle.Full;
+        Angle angle1 = new() { Arcseconds = 1296000f };
         UnityEngine.Assertions.Assert.AreApproximatelyEqual(1296000f, angle1.Arcseconds, tolerance);
+    }
+
+    [Test]
+    public void PropertyGrads()
+    {
+        Angle angle1 = new() { Grads = 400f };
+        UnityEngine.Assertions.Assert.AreApproximatelyEqual(400f, angle1.Grads, tolerance);
     }
     
     /*
-    [Test]
-    public void PropertyRadians()
-    {
-        Angle angle1 = Angle.Full;
-        UnityEngine.Assertions.Assert.AreApproximatelyEqual(6.28f, angle1.Radians, tolerance);
-    }
-
     [Test]
     public void PropertyRadians()
     {
