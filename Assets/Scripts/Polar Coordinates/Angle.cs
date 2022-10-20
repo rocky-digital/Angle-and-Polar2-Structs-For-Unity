@@ -113,7 +113,7 @@ public struct Angle : IEquatable<Angle>
         return Degrees == other.Degrees;
     }
 
-    /// <summary> Returns true if the Angles are equal. </summary> 
+    /// <summary> Returns true if the Angles are equal, but false if the other is not an Angle. </summary> 
     public override bool Equals(object other)
     {
         if (!(other is Angle))
@@ -123,9 +123,9 @@ public struct Angle : IEquatable<Angle>
     }
 
     /// <summary> Returns true if the Angles are approximately equal with an Angle tolerance. A float tolerance is ambiguous, i.e. 0.01 degrees != 0.01 radians. </summary>
-    public bool ApproximatelyEquals(Angle other, Angle tolerance)
+    public bool ApproximatelyEquals(Angle other, Angle toleranceAngle)
     {
-        return Mathf.Abs(Degrees - other.Degrees) <= tolerance.Degrees;
+        return Mathf.Abs(Degrees - other.Degrees) <= toleranceAngle.Degrees;
     }
 
     /// <summary> GetHashCode was generated to supress a warning. </summary>

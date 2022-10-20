@@ -116,6 +116,16 @@ public class AngleTests
     // Public Methods:
     //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+    [Test] public void MethodEquals()
+    {
+        Angle angle1 = new() { Degrees = 1f };
+        Angle angle2 = new() { Degrees = 1f };
+        Assert.IsTrue(angle1.Equals(angle2));
+
+        float number = 1f;
+        Assert.IsFalse(angle1.Equals(number));
+    }
+
     [Test] public void MethodApproximatelyEquals()
     {
         Angle angle1 = new() { Degrees = 92f }; 
@@ -124,7 +134,7 @@ public class AngleTests
         Assert.IsTrue(angle1.ApproximatelyEquals(other, tolerance));
 
         angle1.Degrees = 45f;
-        other.Degrees = -44.9f;
+        other.Degrees = -45f;
         Assert.IsFalse(angle1.ApproximatelyEquals(other, tolerance));
 
         // You can use this method to check if an angle is within a certain angle range of another.
