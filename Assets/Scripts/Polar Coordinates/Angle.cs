@@ -12,50 +12,50 @@ public struct Angle : IEquatable<Angle>
     // Component Properties:
     //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-    /// <summary> A full turn is 360 degrees. Degrees are typically user-defined as rational numbers. Angles are stored in degrees because of this property. </summary>
+    /// <summary> 360 degrees is a revolution. Degrees are typically user-defined as rational numbers. Angles are stored in degrees because of this property. </summary>
     public float Degrees { get; set; }
 
-    /// <summary> A full turn is ~6.28 radians. Radians are typically user-defined as irrational numbers, i.e. pi times a multiplier, which leads to information loss with floats. </summary>
+    /// <summary> ~6.28 radians is a revolution. Radians are typically user-defined as irrational numbers, i.e. pi times a multiplier, which leads to information loss with floats. </summary>
     public float Radians
     { get => Degrees * Mathf.Deg2Rad;           set => Degrees = value * Mathf.Rad2Deg; }
 
-    /// <summary> The minute of arc (or MOA, arcminute, or just minute) is 1/60 of a degree. Not a unit of time. </summary>
+    /// <summary> 21,600 arcminutes is a revolution. The minute of arc (or MOA, arcminute, or just minute) is 1/60 of a degree. Not a unit of time. </summary>
     public float Arcminutes
     { get => Degrees / 60f;                     set => Degrees = value / 60f; }
 
-    /// <summary> The second of arc (or arcsecond, or just second) is 1/60 of a minute of arc and 1/3600 of a degree. Not a unit of time. </summary>
+    /// <summary> 1,296,000 arcseconds is a revolution. The second of arc (or arcsecond, or just second) is 1/60 of a minute of arc and 1/3600 of a degree. Not a unit of time. </summary>
     public float Arcseconds
     { get => Degrees / 3600f;                   set => Degrees = value / 3600f; }
 
-    /// <summary> The grad, also called grade, gradian, or gon. It is a decimal subunit of the quadrant. A full turn is 400 grads. </summary>
+    /// <summary> 400 grads is a revolution. The grad, also called grade, gradian, or gon. It is a decimal subunit of the quadrant. </summary>
     public float Grads
     { get => Degrees * 10f / 9f;                set => Degrees = value * 10f / 9f; }
 
-    /// <summary> The turn, also cycle, revolution, and rotation, is one complete circular movement or measure. </summary>
+    /// <summary> 1 turn is a revolution. The turn, also cycle, revolution, and rotation, is one complete circular movement or measure. </summary>
     public float Turns
     { get => Degrees / 360f;                    set => Degrees = value / 360f; }
 
-    /// <summary> The astronomical hour angle is 1/24 turn. </summary>
+    /// <summary> 24 hour angles is a revolution. An astronomical unit. </summary>
     public float HourAngles
     { get => Degrees / 15f;                     set => Degrees = value / 15f; }
 
-    /// <summary> The wind or point, used in navigation, is 1/32 of a turn. </summary>
+    /// <summary> 32 winds is a revolution. The wind or point is used in navigation. </summary>
     public float Winds
     { get => Degrees * 4f / 45f;                set => Degrees = value * 4f / 45f; }
 
-    /// <summary> The true milliradian is defined as a thousandth of a radian, which means that a rotation of one turn would equal exactly 2000pi mrad. </summary>
+    /// <summary> 2000pi milliradians is a revolution. The true milliradian is defined as a thousandth of a radian. </summary>
     public float Milliradians
     { get => Degrees * Mathf.Deg2Rad / 2000f;   set => Degrees = value * Mathf.Deg2Rad / 2000f; }
 
-    /// <summary> The binary degree, also known as the binary radian or brad or binary angular measurement (BAM) is 1/256 of a turn. </summary>
+    /// <summary> 256 binary degrees is a revolution. The binary degree is also known as the binary radian or brad or binary angular measurement (BAM). </summary>
     public float BinaryDegrees
     { get => Degrees * 32f / 45f;               set => Degrees = value * 32f / 45f; }
 
-    /// <summary> One quadrant is a 1/4 turn and also known as a right angle. </summary>
+    /// <summary> 4 quadrants is a revolution. One quadrant is also known as a right angle. </summary>
     public float Quadrants
     { get => Degrees / 90f;                     set => Degrees = value / 90f; }
 
-    /// <summary> The sextant is the angle of the equilateral triangle or is 1/6 turn. </summary>
+    /// <summary> 6 sextants is a revolution. The sextant is the angle of the equilateral triangle. </summary>
     public float Sextants
     { get => Degrees / 6f;                      set => Degrees = value / 6f; }
 

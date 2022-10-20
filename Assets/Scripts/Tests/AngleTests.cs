@@ -19,6 +19,77 @@ public class AngleTests
         UnityEngine.Assertions.Assert.AreApproximatelyEqual(6.28f, angle1.Radians, tolerance);
     }
 
+    [Test]
+    public void PropertyArcminutes()
+    {
+        Angle angle1 = Angle.Full;
+        UnityEngine.Assertions.Assert.AreApproximatelyEqual(21600f, angle1.Arcminutes, tolerance);
+    }
+    /*
+    [Test]
+    public void PropertyRadians()
+    {
+        Angle angle1 = Angle.Full;
+        UnityEngine.Assertions.Assert.AreApproximatelyEqual(6.28f, angle1.Radians, tolerance);
+    }
+
+    [Test]
+    public void PropertyRadians()
+    {
+        Angle angle1 = Angle.Full;
+        UnityEngine.Assertions.Assert.AreApproximatelyEqual(6.28f, angle1.Radians, tolerance);
+    }
+
+    [Test]
+    public void PropertyRadians()
+    {
+        Angle angle1 = Angle.Full;
+        UnityEngine.Assertions.Assert.AreApproximatelyEqual(6.28f, angle1.Radians, tolerance);
+    }
+
+    [Test]
+    public void PropertyRadians()
+    {
+        Angle angle1 = Angle.Full;
+        UnityEngine.Assertions.Assert.AreApproximatelyEqual(6.28f, angle1.Radians, tolerance);
+    }
+
+    [Test]
+    public void PropertyRadians()
+    {
+        Angle angle1 = Angle.Full;
+        UnityEngine.Assertions.Assert.AreApproximatelyEqual(6.28f, angle1.Radians, tolerance);
+    }
+
+    [Test]
+    public void PropertyRadians()
+    {
+        Angle angle1 = Angle.Full;
+        UnityEngine.Assertions.Assert.AreApproximatelyEqual(6.28f, angle1.Radians, tolerance);
+    }
+
+    [Test]
+    public void PropertyRadians()
+    {
+        Angle angle1 = Angle.Full;
+        UnityEngine.Assertions.Assert.AreApproximatelyEqual(6.28f, angle1.Radians, tolerance);
+    }
+
+    [Test]
+    public void PropertyRadians()
+    {
+        Angle angle1 = Angle.Full;
+        UnityEngine.Assertions.Assert.AreApproximatelyEqual(6.28f, angle1.Radians, tolerance);
+    }
+
+    [Test]
+    public void PropertyRadians()
+    {
+        Angle angle1 = Angle.Full;
+        UnityEngine.Assertions.Assert.AreApproximatelyEqual(6.28f, angle1.Radians, tolerance);
+    }
+    */
+
     // Read Only Properties:
     //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
