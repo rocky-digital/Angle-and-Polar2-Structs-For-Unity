@@ -210,6 +210,65 @@ public class AngleTests
     // Comparison Operators:
     //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+
+    [Test] public void OperatorEqual()
+    {
+        Angle angle1 = new() { Degrees = 8f };
+        Angle angle2 = new() { Degrees = 8f };
+        Assert.IsTrue(angle1 == angle2);
+    }
+
+    [Test] public void OperatorNotEqual()
+    {
+        Angle angle1 = new() { Degrees = 9f };
+        Angle angle2 = new() { Degrees = 10f };
+        Assert.IsTrue(angle1 != angle2);
+    }
+
+    [Test] public void OperatorLessThan()
+    {
+        Angle angle1 = new() { Degrees = 1f };
+        Angle angle2 = new() { Degrees = 2f };
+        Assert.IsTrue(angle1 < angle2);
+    }
+
+    [Test]
+    public void OperatorLessThanOrEqualTo()
+    {
+        Angle angle1 = new() { Degrees = 3f };
+        Angle angle2 = new() { Degrees = 3f };
+        Assert.IsTrue(angle1 <= angle2);
+    }
+
+    [Test] public void OperatorGreaterThan()
+    {
+        Angle angle1 = new() { Degrees = 5f };
+        Angle angle2 = new() { Degrees = 4f };
+        Assert.IsTrue(angle1 > angle2);
+    }
+
+    [Test] public void OperatorGreaterThanOrEqualTo()
+    {
+        Angle angle1 = new() { Degrees = 6f };
+        Angle angle2 = new() { Degrees = 6f };
+        Assert.IsTrue(angle1 >= angle2);
+    }
+
+    /*
+    [Test] public void OperatorEqual()
+    {
+        Angle angle1 = new() { Degrees = 8f };
+        Angle angle2 = new() { Degrees = 8f };
+        Assert.IsTrue(angle1 == angle2);
+    }
+    [Test] public void OperatorEqual()
+    {
+        Angle angle1 = new() { Degrees = 8f };
+        Angle angle2 = new() { Degrees = 8f };
+        Assert.IsTrue(angle1 == angle2);
+    }
+    */
+
     // Conversion Operators:
     //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
