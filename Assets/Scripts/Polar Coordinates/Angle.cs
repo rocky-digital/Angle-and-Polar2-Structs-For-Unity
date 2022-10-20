@@ -75,7 +75,8 @@ public struct Angle : IEquatable<Angle>
     }
 
     /// <summary> Returns an effectively equivalent Angle in the unsigned interval [0, 360) degrees (Read Only). 
-    /// Be wary using this with arithmetic operators. For example, -90 and 270 are equivalent degrees when Unsigned, but -90 * 2 is not equal to 270 * 2. </summary>
+    /// Be wary using this with arithmetic operators. For example, -90 and 270 are equivalent degrees when Unsigned, but -90 * 2 is not equal to 270 * 2. 
+    /// Also, a statement like -angle.Unsigned.Degrees will return a negative angle. </summary>
     public Angle Unsigned
     {
         get

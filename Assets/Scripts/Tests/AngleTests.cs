@@ -270,16 +270,13 @@ public class AngleTests
         Assert.AreEqual(Mathf.PI / 4f, angle1.Radians);
         Assert.AreEqual(45f, angle1.Degrees);
     }
-    /*
-    [Test] public void OperatorVector2ToAngle()
+
+    [Test] public void OperatorAngleToQuaternion()
     {
-        Angle angle1 = new() { Degrees = 8f };
-        Angle angle2 = new() { Degrees = 8f };
-        Assert.IsTrue(angle1 == angle2);
+        Angle angle1 = new() { Degrees = 5f };
+        Quaternion quaternion = angle1;
+        Assert.AreEqual(355f, quaternion.eulerAngles.y);
     }
-
-
-    */
 
     // Static Methods:
     //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
