@@ -202,6 +202,28 @@ public class AngleTests
     // Static Methods:
     //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+    [Test]
+    public void StaticMethodSmallestSignedDifference()
+    {
+        Angle minuend = new();
+        Angle subtrahend = new();
+        // Positive result
+        minuend.Degrees = 2f;
+        subtrahend.Degrees = 1f;
+        Assert.AreEqual(1f, Angle.SmallestSignedDifference(minuend, subtrahend).Degrees);
+        // Negative result
+        minuend.Degrees = 3f;
+        subtrahend.Degrees = 6f;
+        Assert.AreEqual(-3f, Angle.SmallestSignedDifference(minuend, subtrahend).Degrees);
+        // Smallest signed difference should be 4f
+        minuend.Degrees = 180f;
+        subtrahend.Degrees = -184f;
+        Assert.AreEqual(4f, Angle.SmallestSignedDifference(minuend, subtrahend).Degrees);
+        // Smallest signed difference should be -7f
+        minuend.Degrees = -5f;
+        subtrahend.Degrees = 722f;
+        Assert.AreEqual(-7f, Angle.SmallestSignedDifference(minuend, subtrahend).Degrees);
+    }
 
 
 }
