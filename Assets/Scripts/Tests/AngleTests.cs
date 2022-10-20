@@ -254,23 +254,32 @@ public class AngleTests
         Assert.IsTrue(angle1 >= angle2);
     }
 
-    /*
-    [Test] public void OperatorEqual()
-    {
-        Angle angle1 = new() { Degrees = 8f };
-        Angle angle2 = new() { Degrees = 8f };
-        Assert.IsTrue(angle1 == angle2);
-    }
-    [Test] public void OperatorEqual()
-    {
-        Angle angle1 = new() { Degrees = 8f };
-        Angle angle2 = new() { Degrees = 8f };
-        Assert.IsTrue(angle1 == angle2);
-    }
-    */
 
     // Conversion Operators:
     //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    [Test] public void OperatorVector2ToAngle()
+    {
+        Vector2 vector = new(0, 1f);
+        Angle angle1 = vector;
+        Assert.AreEqual(Mathf.PI / 2f, angle1.Radians);
+        Assert.AreEqual(90f, angle1.Degrees);
+
+        vector.Set(1f, 1f);
+        angle1 = vector;
+        Assert.AreEqual(Mathf.PI / 4f, angle1.Radians);
+        Assert.AreEqual(45f, angle1.Degrees);
+    }
+    /*
+    [Test] public void OperatorVector2ToAngle()
+    {
+        Angle angle1 = new() { Degrees = 8f };
+        Angle angle2 = new() { Degrees = 8f };
+        Assert.IsTrue(angle1 == angle2);
+    }
+
+
+    */
 
     // Static Methods:
     //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

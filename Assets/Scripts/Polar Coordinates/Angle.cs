@@ -212,7 +212,7 @@ public struct Angle : IEquatable<Angle>
     /// <summary> Converts a Vector2 to an Angle. </summary>
     public static implicit operator Angle(Vector2 vector)
     {
-        return new() { Degrees = Mathf.Atan2(vector.y, vector.x) };
+        return new() { Radians = Mathf.Atan2(vector.y, vector.x) };
     }
 
     /// <summary> Converts an Angle to a Y-axis angle Quaternion in Unity's counterclockwise Y-axis space when viewed from top-down. </summary>
