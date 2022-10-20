@@ -21,11 +21,11 @@ public struct Angle : IEquatable<Angle>
 
     /// <summary> 21,600 arcminutes is a revolution. The minute of arc (or MOA, arcminute, or just minute) is 1/60 of a degree. Not a unit of time. </summary>
     public float Arcminutes
-    { get => Degrees / 60f;                     set => Degrees = value / 60f; }
+    { get => Degrees * 60f;                     set => Degrees = value * 60f; }
 
     /// <summary> 1,296,000 arcseconds is a revolution. The second of arc (or arcsecond, or just second) is 1/60 of a minute of arc and 1/3600 of a degree. Not a unit of time. </summary>
     public float Arcseconds
-    { get => Degrees / 3600f;                   set => Degrees = value / 3600f; }
+    { get => Degrees * 3600f;                   set => Degrees = value * 3600f; }
 
     /// <summary> 400 grads is a revolution. The grad, also called grade, gradian, or gon. It is a decimal subunit of the quadrant. </summary>
     public float Grads

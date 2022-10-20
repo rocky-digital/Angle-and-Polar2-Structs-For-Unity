@@ -12,27 +12,26 @@ public class AngleTests
     // This tolerance was chosen because most angles will be displayed on the HUD with two decimal places.
     public float tolerance = 0.01f;
 
-    [Test]
-    public void PropertyRadians()
+    [Test] public void PropertyRadians()
     {
         Angle angle1 = Angle.Full;
         UnityEngine.Assertions.Assert.AreApproximatelyEqual(6.28f, angle1.Radians, tolerance);
     }
 
-    [Test]
-    public void PropertyArcminutes()
+    [Test] public void PropertyArcminutes()
     {
         Angle angle1 = Angle.Full;
         UnityEngine.Assertions.Assert.AreApproximatelyEqual(21600f, angle1.Arcminutes, tolerance);
     }
-    /*
-    [Test]
-    public void PropertyRadians()
-    {
-        Angle angle1 = Angle.Full;
-        UnityEngine.Assertions.Assert.AreApproximatelyEqual(6.28f, angle1.Radians, tolerance);
-    }
 
+    [Test] public void PropertyArcseconds()
+    {
+        // 1296000
+        Angle angle1 = Angle.Full;
+        UnityEngine.Assertions.Assert.AreApproximatelyEqual(1296000f, angle1.Arcseconds, tolerance);
+    }
+    
+    /*
     [Test]
     public void PropertyRadians()
     {
