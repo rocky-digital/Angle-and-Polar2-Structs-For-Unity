@@ -60,23 +60,24 @@ public class AngleTests
         UnityEngine.Assertions.Assert.AreApproximatelyEqual(6283.19f, angle1.Milliradians, tolerance);
     }
     
-    /*
-    [Test] public void PropertyRadians()
+    [Test] public void PropertyBinaryDegrees()
     {
-        Angle angle1 = new() { Grads = 400f };
-        UnityEngine.Assertions.Assert.AreApproximatelyEqual(6.28f, angle1.Radians, tolerance);
+        Angle angle1 = new() { BinaryDegrees = 256f };
+        UnityEngine.Assertions.Assert.AreApproximatelyEqual(256f, angle1.BinaryDegrees, tolerance);
     }
 
-    [Test] public void PropertyRadians()
+    [Test]
+    public void PropertyQuadrants()
     {
-        Angle angle1 = new() { Grads = 400f };
-        UnityEngine.Assertions.Assert.AreApproximatelyEqual(6.28f, angle1.Radians, tolerance);
+        Angle angle1 = new() { Quadrants = 4f };
+        UnityEngine.Assertions.Assert.AreApproximatelyEqual(4f, angle1.Quadrants, tolerance);
     }
-
-
-
-
-    */
+    
+    [Test] public void PropertySextants()
+    {
+        Angle angle1 = new() { Sextants = 6f };
+        UnityEngine.Assertions.Assert.AreApproximatelyEqual(6f, angle1.Sextants, tolerance);
+    }
 
     // Read Only Properties:
     //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

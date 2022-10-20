@@ -49,15 +49,15 @@ public struct Angle : IEquatable<Angle>
 
     /// <summary> 256 binary degrees is a revolution. The binary degree is also known as the binary radian or brad or binary angular measurement (BAM). </summary>
     public float BinaryDegrees
-    { get => Degrees * 32f / 45f;               set => Degrees = value * 32f / 45f; }
+    { get => Degrees * 32f / 45f;               set => Degrees = value * 1.40625f; }
 
     /// <summary> 4 quadrants is a revolution. One quadrant is also known as a right angle. </summary>
     public float Quadrants
-    { get => Degrees / 90f;                     set => Degrees = value / 90f; }
+    { get => Degrees / 90f;                     set => Degrees = value * 90f; }
 
     /// <summary> 6 sextants is a revolution. The sextant is the angle of the equilateral triangle. </summary>
     public float Sextants
-    { get => Degrees / 6f;                      set => Degrees = value / 6f; }
+    { get => Degrees / 60f;                      set => Degrees = value * 60f; }
 
     // Read Only Properties:
     //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
