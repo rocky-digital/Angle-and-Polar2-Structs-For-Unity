@@ -7,6 +7,8 @@ using UnityEngine.TestTools;
 
 public class AngleTests
 {
+    // Try not to repeat the same numbers across tests right next to eachother. This will vastly improve readability.
+
     // Component Properties:
     //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     
@@ -124,65 +126,73 @@ public class AngleTests
     {
         Angle a = new() { Degrees = 1f };
         Angle b = new() { Degrees = 2f };
-        Assert.AreEqual(3f, (a + b).Unsigned.Degrees);
+        Assert.AreEqual(3f, (a + b).Degrees);
     }
+
+    [Test] public void OperatorSubtract()
+    {
+        Angle a = new() { Degrees = 3f };
+        Angle b = new() { Degrees = 4f };
+        Assert.AreEqual(-1f, (a - b).Degrees);
+    }
+
+    [Test] public void OperatorNegate()
+    {
+        Angle a = new() { Degrees = 5f };
+        Assert.AreEqual(-5f, -a.Degrees);
+    }
+
+    [Test]
+    public void OperatorMultiplyAngleByAngle()
+    {
+        Angle a = new() { Degrees = 6f };
+        Angle b = new() { Degrees = 7f };
+        Assert.AreEqual(42f, (a * b).Degrees);
+    }
+
+    [Test] public void OperatorMultiplyAngleByNumber()
+    {
+        Angle a = new() { Degrees = 8f };
+        Assert.AreEqual(72f, (a * 9f).Degrees);
+    }
+
+    [Test] public void OperatorMultiplyNumberByAngle()
+    {
+        Angle b = new() { Degrees = 1f };
+        Assert.AreEqual(2f, (2f * b).Degrees);
+    }
+
+
+    [Test] public void OperatorDivideAngleByAngle()
+    {
+        Angle a = new() { Degrees = 3f };
+        Angle b = new() { Degrees = 4f };
+        Assert.AreEqual(0.75f, (a / b).Degrees);
+    }
+
+    [Test] public void OperatorDivideAngleByNumber()
+    {
+        Angle a = new() { Degrees = 5f };
+        Assert.AreEqual(0.25f, (a / 20f).Degrees);
+    }
+
+    [Test] public void OperatorRemainder()
+    {
+        Angle a = new() { Degrees = 6f };
+        Angle b = new() { Degrees = 7f };
+        Assert.AreEqual(6f, (a % b).Degrees);
+    }
+
 
     /* 
-    [Test] public void Operator()
-    {
-        Angle a = new() { Degrees = 1f };
-        Angle b = new() { Degrees = 2f };
-        Assert.AreEqual(3f, (a + b).Unsigned.Degrees);
-    }
-    
-    [Test] public void Operator()
-    {
-        Angle a = new() { Degrees = 1f };
-        Angle b = new() { Degrees = 2f };
-        Assert.AreEqual(3f, (a + b).Unsigned.Degrees);
-    }
 
     [Test] public void Operator()
     {
         Angle a = new() { Degrees = 1f };
         Angle b = new() { Degrees = 2f };
-        Assert.AreEqual(3f, (a + b).Unsigned.Degrees);
+        Assert.AreEqual(3f, (a + b).Degrees);
     }
 
-    [Test] public void Operator()
-    {
-        Angle a = new() { Degrees = 1f };
-        Angle b = new() { Degrees = 2f };
-        Assert.AreEqual(3f, (a + b).Unsigned.Degrees);
-    }
-
-    [Test] public void Operator()
-    {
-        Angle a = new() { Degrees = 1f };
-        Angle b = new() { Degrees = 2f };
-        Assert.AreEqual(3f, (a + b).Unsigned.Degrees);
-    }
-
-    [Test] public void Operator()
-    {
-        Angle a = new() { Degrees = 1f };
-        Angle b = new() { Degrees = 2f };
-        Assert.AreEqual(3f, (a + b).Unsigned.Degrees);
-    }
-
-    [Test] public void Operator()
-    {
-        Angle a = new() { Degrees = 1f };
-        Angle b = new() { Degrees = 2f };
-        Assert.AreEqual(3f, (a + b).Unsigned.Degrees);
-    }
-
-    [Test] public void Operator()
-    {
-        Angle a = new() { Degrees = 1f };
-        Angle b = new() { Degrees = 2f };
-        Assert.AreEqual(3f, (a + b).Unsigned.Degrees);
-    }
 
 
 
