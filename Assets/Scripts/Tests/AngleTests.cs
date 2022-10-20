@@ -14,7 +14,7 @@ public class AngleTests
 
     [Test] public void PropertyRadians()
     {
-        Angle angle1 = new() { Radians = 2 * Mathf.PI };
+        Angle angle1 = new() { Radians = 2f * Mathf.PI };
         UnityEngine.Assertions.Assert.AreApproximatelyEqual(6.28f, angle1.Radians, tolerance);
     }
 
@@ -30,62 +30,52 @@ public class AngleTests
         UnityEngine.Assertions.Assert.AreApproximatelyEqual(1296000f, angle1.Arcseconds, tolerance);
     }
 
-    [Test]
-    public void PropertyGrads()
+    [Test] public void PropertyGrads()
     {
         Angle angle1 = new() { Grads = 400f };
         UnityEngine.Assertions.Assert.AreApproximatelyEqual(400f, angle1.Grads, tolerance);
     }
+
+    [Test] public void PropertyTurns()
+    {
+        Angle angle1 = new() { Turns = 1f };
+        UnityEngine.Assertions.Assert.AreApproximatelyEqual(1f, angle1.Turns, tolerance);
+    }
+
+    [Test] public void PropertyHourAngles()
+    {
+        Angle angle1 = new() { HourAngles = 24f };
+        UnityEngine.Assertions.Assert.AreApproximatelyEqual(24f, angle1.HourAngles, tolerance);
+    }
+
+    [Test] public void PropertyWinds()
+    {
+        Angle angle1 = new() { Winds = 32f };
+        UnityEngine.Assertions.Assert.AreApproximatelyEqual(32f, angle1.Winds, tolerance);
+    }
+
+    [Test] public void PropertyMilliradians()
+    {
+        Angle angle1 = new() { Milliradians = 2000f * Mathf.PI };
+        UnityEngine.Assertions.Assert.AreApproximatelyEqual(6283.19f, angle1.Milliradians, tolerance);
+    }
     
     /*
-    [Test]
-    public void PropertyRadians()
+    [Test] public void PropertyRadians()
     {
-        Angle angle1 = Angle.Full;
+        Angle angle1 = new() { Grads = 400f };
         UnityEngine.Assertions.Assert.AreApproximatelyEqual(6.28f, angle1.Radians, tolerance);
     }
 
-    [Test]
-    public void PropertyRadians()
+    [Test] public void PropertyRadians()
     {
-        Angle angle1 = Angle.Full;
+        Angle angle1 = new() { Grads = 400f };
         UnityEngine.Assertions.Assert.AreApproximatelyEqual(6.28f, angle1.Radians, tolerance);
     }
 
-    [Test]
-    public void PropertyRadians()
-    {
-        Angle angle1 = Angle.Full;
-        UnityEngine.Assertions.Assert.AreApproximatelyEqual(6.28f, angle1.Radians, tolerance);
-    }
 
-    [Test]
-    public void PropertyRadians()
-    {
-        Angle angle1 = Angle.Full;
-        UnityEngine.Assertions.Assert.AreApproximatelyEqual(6.28f, angle1.Radians, tolerance);
-    }
 
-    [Test]
-    public void PropertyRadians()
-    {
-        Angle angle1 = Angle.Full;
-        UnityEngine.Assertions.Assert.AreApproximatelyEqual(6.28f, angle1.Radians, tolerance);
-    }
 
-    [Test]
-    public void PropertyRadians()
-    {
-        Angle angle1 = Angle.Full;
-        UnityEngine.Assertions.Assert.AreApproximatelyEqual(6.28f, angle1.Radians, tolerance);
-    }
-
-    [Test]
-    public void PropertyRadians()
-    {
-        Angle angle1 = Angle.Full;
-        UnityEngine.Assertions.Assert.AreApproximatelyEqual(6.28f, angle1.Radians, tolerance);
-    }
     */
 
     // Read Only Properties:

@@ -33,19 +33,19 @@ public struct Angle : IEquatable<Angle>
 
     /// <summary> 1 turn is a revolution. The turn, also cycle, revolution, and rotation, is one complete circular movement or measure. </summary>
     public float Turns
-    { get => Degrees / 360f;                    set => Degrees = value / 360f; }
+    { get => Degrees / 360f;                    set => Degrees = value * 360f; }
 
     /// <summary> 24 hour angles is a revolution. An astronomical unit. </summary>
     public float HourAngles
-    { get => Degrees / 15f;                     set => Degrees = value / 15f; }
+    { get => Degrees / 15f;                     set => Degrees = value * 15f; }
 
     /// <summary> 32 winds is a revolution. The wind or point is used in navigation. </summary>
     public float Winds
-    { get => Degrees * 4f / 45f;                set => Degrees = value * 4f / 45f; }
+    { get => Degrees * 4f / 45f;                set => Degrees = value * 11.25f; }
 
     /// <summary> 2000pi milliradians is a revolution. The true milliradian is defined as a thousandth of a radian. </summary>
     public float Milliradians
-    { get => Degrees * Mathf.Deg2Rad / 2000f;   set => Degrees = value * Mathf.Deg2Rad / 2000f; }
+    { get => Degrees * Mathf.Deg2Rad * 2000f;   set => Degrees = value * Mathf.Rad2Deg / 2000f; }
 
     /// <summary> 256 binary degrees is a revolution. The binary degree is also known as the binary radian or brad or binary angular measurement (BAM). </summary>
     public float BinaryDegrees
