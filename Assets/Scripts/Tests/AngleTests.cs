@@ -9,6 +9,7 @@ public class AngleTests
 {
     // Component Properties:
     //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    
     // This tolerance was chosen because most angles will be displayed on the HUD with two decimal places.
     public float tolerance = 0.01f;
 
@@ -66,8 +67,7 @@ public class AngleTests
         UnityEngine.Assertions.Assert.AreApproximatelyEqual(256f, angle1.BinaryDegrees, tolerance);
     }
 
-    [Test]
-    public void PropertyQuadrants()
+    [Test] public void PropertyQuadrants()
     {
         Angle angle1 = new() { Quadrants = 4f };
         UnityEngine.Assertions.Assert.AreApproximatelyEqual(4f, angle1.Quadrants, tolerance);
@@ -82,8 +82,7 @@ public class AngleTests
     // Read Only Properties:
     //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-    [Test]
-    public void PropertySigned()
+    [Test] public void PropertySigned()
     {
         // Test setting positive angles
         Angle angle1 = new() { Degrees = 10f };
@@ -98,8 +97,7 @@ public class AngleTests
         Assert.AreEqual(45f, angle1.Unsigned.Degrees);
     }
 
-    [Test]
-    public void PropertyUnsigned()
+    [Test] public void PropertyUnsigned()
     {
         // Test setting positive angles
         Angle angle1 = new() { Degrees = 30f };
@@ -118,16 +116,77 @@ public class AngleTests
     //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-    [Test]
-    public void MethodToString()
-    {
-        Angle angle1 = new() { Degrees = 360f };
-        Assert.AreEqual("360 degrees", angle1.ToString());
-    }
-
 
     // Arithmetic Operators:
     //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    [Test] public void OperatorAdd()
+    {
+        Angle a = new() { Degrees = 1f };
+        Angle b = new() { Degrees = 2f };
+        Assert.AreEqual(3f, (a + b).Unsigned.Degrees);
+    }
+
+    /* 
+    [Test] public void Operator()
+    {
+        Angle a = new() { Degrees = 1f };
+        Angle b = new() { Degrees = 2f };
+        Assert.AreEqual(3f, (a + b).Unsigned.Degrees);
+    }
+    
+    [Test] public void Operator()
+    {
+        Angle a = new() { Degrees = 1f };
+        Angle b = new() { Degrees = 2f };
+        Assert.AreEqual(3f, (a + b).Unsigned.Degrees);
+    }
+
+    [Test] public void Operator()
+    {
+        Angle a = new() { Degrees = 1f };
+        Angle b = new() { Degrees = 2f };
+        Assert.AreEqual(3f, (a + b).Unsigned.Degrees);
+    }
+
+    [Test] public void Operator()
+    {
+        Angle a = new() { Degrees = 1f };
+        Angle b = new() { Degrees = 2f };
+        Assert.AreEqual(3f, (a + b).Unsigned.Degrees);
+    }
+
+    [Test] public void Operator()
+    {
+        Angle a = new() { Degrees = 1f };
+        Angle b = new() { Degrees = 2f };
+        Assert.AreEqual(3f, (a + b).Unsigned.Degrees);
+    }
+
+    [Test] public void Operator()
+    {
+        Angle a = new() { Degrees = 1f };
+        Angle b = new() { Degrees = 2f };
+        Assert.AreEqual(3f, (a + b).Unsigned.Degrees);
+    }
+
+    [Test] public void Operator()
+    {
+        Angle a = new() { Degrees = 1f };
+        Angle b = new() { Degrees = 2f };
+        Assert.AreEqual(3f, (a + b).Unsigned.Degrees);
+    }
+
+    [Test] public void Operator()
+    {
+        Angle a = new() { Degrees = 1f };
+        Angle b = new() { Degrees = 2f };
+        Assert.AreEqual(3f, (a + b).Unsigned.Degrees);
+    }
+
+
+
+    */
 
 
     // Comparison Operators:
