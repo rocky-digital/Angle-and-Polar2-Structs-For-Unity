@@ -121,7 +121,13 @@ public struct Angle : IEquatable<Angle>
         else
             return Equals(other);
     }
-    
+
+    /// <summary> Returns true if the Angles are approximately equal with an Angle tolerance. A float tolerance is ambiguous, i.e. 0.01 degrees != 0.01 radians. </summary>
+    public bool ApproximatelyEquals(Angle other, Angle tolerance)
+    {
+        return Mathf.Abs(Degrees - other.Degrees) <= tolerance.Degrees;
+    }
+
     /// <summary> GetHashCode was generated to supress a warning. </summary>
     public override int GetHashCode()
     {
@@ -176,27 +182,27 @@ public struct Angle : IEquatable<Angle>
     // Comparison Operators:
     //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-    /// <summary> Returns true if the Angles are equal. </summary>
+    /// <summary> Returns true if the Angles are exactly equal. </summary>
     public static bool operator ==(Angle left, Angle right)
     { return (left.Degrees - right.Degrees) == 0; }
 
-    /// <summary> Returns true if the Angles are not equal. </summary>
+    /// <summary> Returns true if the Angles are not exactly equal. </summary>
     public static bool operator !=(Angle left, Angle right)
     { return (left.Degrees - right.Degrees) != 0; }
 
-    /// <summary> Returns true if the left-hand angle is less than the right-hand angle. </summary>
+    /// <summary> Returns true if the left-hand angle is exactly less than the right-hand angle. </summary>
     public static bool operator <(Angle left, Angle right)
     { return left.Degrees < right.Degrees; }
 
-    /// <summary> Returns true if the left-hand angle is less than or equal to the right-hand angle. </summary>
+    /// <summary> Returns true if the left-hand angle is exactly less than or equal to the right-hand angle. </summary>
     public static bool operator <=(Angle left, Angle right)
     { return left.Degrees <= right.Degrees; }
 
-    /// <summary> Returns true if the left-hand angle is greater than the right-hand angle. </summary>
+    /// <summary> Returns true if the left-hand angle is exactly greater than the right-hand angle. </summary>
     public static bool operator >(Angle left, Angle right)
     { return left.Degrees > right.Degrees; }
 
-    /// <summary> Returns true if the left-hand angle is greater than or equal to the right-hand angle. </summary>
+    /// <summary> Returns true if the left-hand angle is exactly greater than or equal to the right-hand angle. </summary>
     public static bool operator >=(Angle left, Angle right)
     { return left.Degrees >= right.Degrees; }
 

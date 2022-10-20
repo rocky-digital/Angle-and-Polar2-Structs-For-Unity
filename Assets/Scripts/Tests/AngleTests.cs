@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
-// using UnityEngine.Assertions;
 
 public class AngleTests
 {
@@ -182,21 +181,6 @@ public class AngleTests
         Angle b = new() { Degrees = 7f };
         Assert.AreEqual(6f, (a % b).Degrees);
     }
-
-
-    /* 
-
-    [Test] public void Operator()
-    {
-        Angle a = new() { Degrees = 1f };
-        Angle b = new() { Degrees = 2f };
-        Assert.AreEqual(3f, (a + b).Degrees);
-    }
-
-
-
-
-    */
 
 
     // Comparison Operators:
