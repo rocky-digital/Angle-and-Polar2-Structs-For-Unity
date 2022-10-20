@@ -116,13 +116,16 @@ public class AngleTests
     // Public Methods:
     //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-
     [Test] public void MethodApproximatelyEquals()
     {
-        Angle angle1 = new() { Degrees = -92f }; 
-        Angle other = new() { Degrees = -92.2f };
+        Angle angle1 = new() { Degrees = 92f }; 
+        Angle other = new() { Degrees = 92.1f };
         Angle tolerance = new() { Degrees = 0.1f };
         Assert.IsTrue(angle1.ApproximatelyEquals(other, tolerance));
+
+        angle1.Degrees = 45f;
+        other.Degrees = -44.9f;
+        Assert.IsFalse(angle1.ApproximatelyEquals(other, tolerance));
     }
 
     // Arithmetic Operators:

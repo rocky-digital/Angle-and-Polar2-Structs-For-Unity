@@ -125,7 +125,7 @@ public struct Angle : IEquatable<Angle>
     /// <summary> Returns true if the Angles are approximately equal with an Angle tolerance. A float tolerance is ambiguous, i.e. 0.01 degrees != 0.01 radians. </summary>
     public bool ApproximatelyEquals(Angle other, Angle tolerance)
     {
-        return Mathf.Abs(Degrees) - Mathf.Abs(other.Degrees) <= tolerance.Degrees;
+        return Mathf.Abs(Degrees - other.Degrees) <= tolerance.Degrees;
     }
 
     /// <summary> GetHashCode was generated to supress a warning. </summary>
