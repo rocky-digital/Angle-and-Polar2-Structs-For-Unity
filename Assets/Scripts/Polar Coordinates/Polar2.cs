@@ -22,7 +22,7 @@ public struct Polar2
     // Read Only Properties:
     //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-    /// <summary> Returns an effectively equivalent Polar2 with a Length in the positive interval [0, infinity) and adds 180 degrees to the angle (Read Only). </summary>
+    /// <summary> If the Length is negative, this returns an effectively equivalent Polar2 with a Length in the positive interval [0, infinity) and adds 180 degrees to the angle (Read Only). </summary>
     public Polar2 Positive
     {
         get
@@ -188,7 +188,7 @@ public struct Polar2
     }
 
     // Static Methods:
-    // Don't include dependencies on other classes in static methods. The Polar2 class should be able to be imported with only itself and the Angle class.
+    // Don't include dependencies on other classes in static methods. The Polar2 class should be able to be imported with only itself and the other coordinate classes.
     //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
     /// <summary> Lerps between two polar coordinates, component-wise. </summary>

@@ -6,7 +6,7 @@ using UnityEngine.TestTools;
 
 public class AngleTests
 {
-    // Try not to repeat the same numbers across tests right next to eachother. This will vastly improve readability.
+    // Try not to repeat the same numbers across tests right next to eachother. Doing so will vastly improve readability.
 
     // Component Properties:
     //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -126,6 +126,12 @@ public class AngleTests
         angle1.Degrees = 45f;
         other.Degrees = -44.9f;
         Assert.IsFalse(angle1.ApproximatelyEquals(other, tolerance));
+
+        // You can use this method to check if an angle is within a certain angle range of another.
+        angle1.Degrees = 60f;
+        other.Degrees = 80f;
+        tolerance.Degrees = 20f;
+        Assert.IsTrue(angle1.ApproximatelyEquals(other, tolerance));
     }
 
     // Arithmetic Operators:
@@ -171,7 +177,6 @@ public class AngleTests
         Assert.AreEqual(2f, (2f * b).Degrees);
     }
 
-
     [Test] public void OperatorDivideAngleByAngle()
     {
         Angle a = new() { Degrees = 3f };
@@ -191,7 +196,6 @@ public class AngleTests
         Angle b = new() { Degrees = 7f };
         Assert.AreEqual(6f, (a % b).Degrees);
     }
-
 
     // Comparison Operators:
     //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -227,3 +231,15 @@ public class AngleTests
 
 
 }
+
+
+/*
+Original Author: James Roquelara
+Start Date: 9/14/2022
+
+Resources:
+Angles: https://en.wikipedia.org/wiki/Angle
+Polar Coordinates: https://en.wikipedia.org/wiki/Polar_coordinate_system
+C# Conventions: https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/coding-style/coding-conventions
+Use Ctrl+F to find words on Firefox. You can quickly learn about the names used throughout this class.
+*/

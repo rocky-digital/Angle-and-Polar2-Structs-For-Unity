@@ -5,7 +5,7 @@ using UnityEngine;
 
 /// <summary> Representation of a 1D angle, stored as degrees in the range (-infinity, infinity). 
 /// Use object initializers to define an Angle because there is no constructor.
-/// Use properties to obtain unique signed and unsigned angles. 
+/// Use properties to obtain unique signed or unsigned angles. 
 /// Loosely modeled after Unity's Vector2 struct for best practices. </summary>
 public struct Angle : IEquatable<Angle>
 {
@@ -241,7 +241,7 @@ public struct Angle : IEquatable<Angle>
     { get => new() { Degrees = 360f }; }
 
     // Static Methods:
-    // Don't include dependencies on other classes in static methods. The Angle class should be able to be imported by itself.
+    // Don't include dependencies on other classes in static methods. The Angle class should be able to be imported by itself and the other coordinate classes.
     //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
     /// <summary> Linearly interpolates between two Polar2s. Lerp formula derived from: https://en.wikipedia.org/wiki/Linear_interpolation </summary>

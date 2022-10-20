@@ -12,4 +12,6 @@ public class Polar2Tests
         Polar2 polar2 = new() { Length = -1f, Angle = new() { Degrees = 90f } };
         Assert.AreEqual(270f, polar2.Positive.Angle.Degrees);
     }
+
+
 }
