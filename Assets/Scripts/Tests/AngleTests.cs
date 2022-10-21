@@ -257,7 +257,7 @@ public class AngleTests
     // Conversion Operators:
     //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-    [Test] public void OperatorVector2ToAngle()
+    [Test] public void OperatorConvertVector2ToAngle()
     {
         Vector2 vector = new(0, 1f);
         Angle angle1 = vector;
@@ -270,7 +270,7 @@ public class AngleTests
         Assert.AreEqual(45f, angle1.Degrees);
     }
 
-    [Test] public void OperatorAngleToQuaternion()
+    [Test] public void OperatorConvertAngleToQuaternion()
     {
         Angle angle1 = new() { Degrees = 5f };
         Quaternion quaternion = angle1;

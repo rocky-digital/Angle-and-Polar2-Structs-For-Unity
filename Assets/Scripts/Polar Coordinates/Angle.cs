@@ -211,13 +211,13 @@ public struct Angle : IEquatable<Angle>
     // Don't include dependencies on non-UnityEngine classes here. The Angle class should be able to be imported by itself.
     //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-    /// <summary> Converts a Vector2 to an Angle. </summary>
+    /// <summary> Converts a Vector2 to an Angle. Specifically, it's the Angle between the Vector2 and the right vector. </summary>
     public static implicit operator Angle(Vector2 vector)
     {
         return new() { Radians = Mathf.Atan2(vector.y, vector.x) };
     }
 
-    /// <summary> Converts an Angle to a Y-axis angle Quaternion in Unity's counterclockwise Y-axis space when viewed from top-down. </summary>
+    /// <summary> Converts an Angle to a Y-axis angle Quaternion in Unity's counterclockwise Y-axis space as viewed from above. Useful for top-down games. </summary>
     public static implicit operator Quaternion(Angle angle)
     {
         return Quaternion.Euler(0, -angle.Degrees, 0);

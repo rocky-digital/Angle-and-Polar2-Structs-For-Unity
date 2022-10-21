@@ -188,7 +188,7 @@ public struct Polar2
             polarCoordinate.Length * Mathf.Sin(polarCoordinate.Angle.Radians));
     }
 
-    /// <summary> Converts a Polar2 to a Vector3 on the XZ plane. </summary>
+    /// <summary> Converts a Polar2 to a Vector3 on the XZ plane as viewed from above. Useful for top-down games. </summary>
     public static implicit operator Vector3(Polar2 polarCoordinate)
     {
         return new Vector3(

@@ -109,7 +109,7 @@ public class Polar2Tests
     // Conversion Operators:
     //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-    [Test] public void OperatorVector2ToPolar2()
+    [Test] public void OperatorConvertVector2ToPolar2()
     {
         Vector2 vector = new(0f, 1f);
         Polar2 polar1 = vector;
@@ -117,7 +117,7 @@ public class Polar2Tests
         Assert.AreEqual(polar1, polar2);
     }
 
-    [Test] public void OperatorPolar2ToVector2()
+    [Test] public void OperatorConvertPolar2ToVector2()
     {
         Polar2 polar = new(1f, new() { Radians = Mathf.PI / 4f });
         Vector2 vector1 = polar;
@@ -125,7 +125,7 @@ public class Polar2Tests
         Assert.AreEqual(vector1, vector2);
     }
 
-    [Test] public void OperatorPolar2ToVector3()
+    [Test] public void OperatorConvertPolar2ToVector3()
     {
         Polar2 polar = new(1f, new() { Radians = Mathf.PI / 4f });
         Vector3 vector1 = polar;
@@ -135,6 +135,8 @@ public class Polar2Tests
 
     // Static Methods:
     //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
 
 }
 
