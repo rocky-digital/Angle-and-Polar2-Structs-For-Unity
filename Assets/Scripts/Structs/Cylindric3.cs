@@ -1,4 +1,3 @@
-// Cylindric3
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -212,9 +211,9 @@ public struct Cylindric3
     public static implicit operator Vector3(Cylindric3 cylindric)
     {
         return new Vector3(
-            cylindric.Length * Mathf.Cos(cylindric.Angle.Radians),
+            cylindric.Length * Mathf.Cos(-cylindric.Angle.Radians),
             cylindric.Height,
-            cylindric.Length * Mathf.Sin(cylindric.Angle.Radians));
+            cylindric.Length * Mathf.Sin(-cylindric.Angle.Radians));
     }
 
     // Public Methods:
