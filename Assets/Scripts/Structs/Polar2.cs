@@ -232,14 +232,14 @@ public struct Polar2
     // Don't include dependencies on non-UnityEngine classes here. The Polar2 class should be able to be imported with only itself and the Angle class.
     //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-    /// <summary> Linearly interpolates between two Polar2s, component-wise. Lerp formula derived from: https://en.wikipedia.org/wiki/Linear_interpolation </summary>
+    /// <summary> Linearly interpolates between two Polar2s, component-wise. </summary>
     public static Polar2 Lerp(Polar2 fromPoint, Polar2 toPoint, float alpha)
     {
         alpha = Mathf.Clamp01(alpha);
         return fromPoint + (alpha * (toPoint - fromPoint));
     }
 
-    /// <summary> Linearly interpolates between two Polar2s, component-wise, without clamping the alpha to [0, 1]. Lerp formula derived from: https://en.wikipedia.org/wiki/Linear_interpolation </summary>
+    /// <summary> Linearly interpolates between two Polar2s, component-wise, without clamping the alpha to [0, 1]. </summary>
     public static Polar2 LerpUnclamped(Polar2 fromPoint, Polar2 toPoint, float alpha)
     {
         return fromPoint + (alpha * (toPoint - fromPoint));

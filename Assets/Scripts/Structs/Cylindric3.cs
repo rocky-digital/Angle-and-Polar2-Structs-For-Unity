@@ -261,14 +261,14 @@ public struct Cylindric3
     // Don't include dependencies on non-UnityEngine classes here. The Cylindric3 class should be able to be imported with only itself and the Angle class.
     //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-    /// <summary> Linearly interpolates between two Polar2s, component-wise. Lerp formula derived from: https://en.wikipedia.org/wiki/Linear_interpolation </summary>
+    /// <summary> Linearly interpolates between two Cylindric3s, component-wise. </summary>
     public static Cylindric3 Lerp(Cylindric3 fromPoint, Cylindric3 toPoint, float alpha)
     {
         alpha = Mathf.Clamp01(alpha);
         return fromPoint + (alpha * (toPoint - fromPoint));
     }
 
-    /// <summary> Linearly interpolates between two Polar2s, component-wise, without clamping the alpha to [0, 1]. Lerp formula derived from: https://en.wikipedia.org/wiki/Linear_interpolation </summary>
+    /// <summary> Linearly interpolates between two Cylindric3s, component-wise, without clamping the alpha to [0, 1]. s</summary>
     public static Cylindric3 LerpUnclamped(Cylindric3 fromPoint, Cylindric3 toPoint, float alpha)
     {
         return fromPoint + (alpha * (toPoint - fromPoint));
