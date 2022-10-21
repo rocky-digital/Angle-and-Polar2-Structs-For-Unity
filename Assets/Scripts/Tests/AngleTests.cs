@@ -210,15 +210,14 @@ public class AngleTests
     // Comparison Operators:
     //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-
-    [Test] public void OperatorEqual()
+    [Test] public void OperatorEqualTo()
     {
         Angle angle1 = new() { Degrees = 8f };
         Angle angle2 = new() { Degrees = 8f };
         Assert.IsTrue(angle1 == angle2);
     }
 
-    [Test] public void OperatorNotEqual()
+    [Test] public void OperatorNotEqualTo()
     {
         Angle angle1 = new() { Degrees = 9f };
         Angle angle2 = new() { Degrees = 10f };
