@@ -167,6 +167,7 @@ public struct Polar2
     { return (lhs.Length != rhs.Length) || (lhs.Angle != rhs.Angle); }
 
     // Conversion Operators:
+    // Don't include dependencies on non-UnityEngine classes here. The Polar2 class should be able to be imported with only itself and the Angle class.
     //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
     /// <summary> Converts a Vector2 to a Polar2. </summary>
@@ -175,7 +176,7 @@ public struct Polar2
         return new()
         {
             Length = vector.magnitude,
-            Angle = new() { Degrees = Vector2.Angle(Vector2.zero, vector) }
+            Angle = new() { Radians = Mathf.Atan2(vector.y, vector.x) }
         };
     }
 
@@ -197,16 +198,21 @@ public struct Polar2
     }
 
     // Static Methods:
-    // Don't include dependencies on other classes in static methods. The Polar2 class should be able to be imported with only itself and the Angle class.
+    // Don't include dependencies on non-UnityEngine classes here. The Polar2 class should be able to be imported with only itself and the Angle class.
     //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-    /// <summary> Lerps between two polar coordinates, component-wise. </summary>
+    /// <summary> Linearly interpolates between two Polar2s, component-wise. Lerp formula derived from: https://en.wikipedia.org/wiki/Linear_interpolation </summary>
     public static Polar2 Lerp(Polar2 fromPoint, Polar2 toPoint, float alpha)
     {
         alpha = Mathf.Clamp01(alpha);
         return fromPoint + (alpha * (toPoint - fromPoint));
     }
 
+    /// <summary> Linearly interpolates between two Polar2s, component-wise, without clamping the alpha to [0, 1]. Lerp formula derived from: https://en.wikipedia.org/wiki/Linear_interpolation </summary>
+    public static Polar2 LerpLerpUnclamped(Polar2 fromPoint, Polar2 toPoint, float alpha)
+    {
+        return fromPoint + (alpha * (toPoint - fromPoint));
+    }
 
 
 
@@ -220,5 +226,6 @@ Resources:
 Angles: https://en.wikipedia.org/wiki/Angle
 Polar Coordinates: https://en.wikipedia.org/wiki/Polar_coordinate_system
 C# Conventions: https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/coding-style/coding-conventions
+Linear Interpolation: https://en.wikipedia.org/wiki/Linear_interpolation 
 Use Ctrl+F to find words on Firefox. You can quickly learn about the names used throughout this class.
 */

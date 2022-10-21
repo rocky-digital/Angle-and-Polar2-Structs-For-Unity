@@ -208,8 +208,9 @@ public struct Angle : IEquatable<Angle>
     { return left.Degrees >= right.Degrees; }
 
     // Conversion Operators:
+    // Don't include dependencies on non-UnityEngine classes here. The Angle class should be able to be imported by itself.
     //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    
+
     /// <summary> Converts a Vector2 to an Angle. </summary>
     public static implicit operator Angle(Vector2 vector)
     {
@@ -242,17 +243,17 @@ public struct Angle : IEquatable<Angle>
     { get => new() { Degrees = 360f }; }
 
     // Static Methods:
-    // Don't include dependencies on other classes in static methods. The Angle class should be able to be imported by itself.
+    // Don't include dependencies on non-UnityEngine classes here. The Angle class should be able to be imported by itself.
     //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-    /// <summary> Linearly interpolates between two Angles. Lerp formula derived from: https://en.wikipedia.org/wiki/Linear_interpolation </summary>
+    /// <summary> Linearly interpolates between two Angles. </summary>
     public static Angle Lerp(Angle from, Angle to, float alpha)
     {
         alpha = Mathf.Clamp01(alpha);
         return from + (alpha * (to - from));
     }
 
-    /// <summary> Linearly interpolates between two Angles without clamping the alpha to [0, 1]. Lerp formula derived from: https://en.wikipedia.org/wiki/Linear_interpolation </summary>
+    /// <summary> Linearly interpolates between two Angles without clamping the alpha to [0, 1]. </summary>
     public static Angle LerpUnclamped(Angle from, Angle to, float alpha)
     {
         return from + (alpha * (to - from));
@@ -274,5 +275,6 @@ Resources:
 Angles: https://en.wikipedia.org/wiki/Angle
 Polar Coordinates: https://en.wikipedia.org/wiki/Polar_coordinate_system
 C# Conventions: https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/coding-style/coding-conventions
+Linear Interpolation: https://en.wikipedia.org/wiki/Linear_interpolation 
 Use Ctrl+F to find words on Firefox. You can quickly learn about the names used throughout this class.
 */

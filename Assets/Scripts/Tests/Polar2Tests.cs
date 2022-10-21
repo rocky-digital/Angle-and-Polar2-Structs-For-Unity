@@ -103,10 +103,49 @@ public class Polar2Tests
         Polar2 a = new(1f, new() { Degrees = 1f });
         Polar2 b = new(2f, new() { Degrees = 2f });
         Assert.IsTrue(a != b);
-    } 
+    }
 
 
     // Conversion Operators:
     //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+    [Test] public void OperatorVector2ToPolar2()
+    {
+        Vector2 vector = new(0f, 1f);
+        Polar2 polar1 = vector;
+        Polar2 polar2 = new(1f, new() { Degrees = 90f });
+        Assert.AreEqual(polar1, polar2);
+    }
+
+    [Test] public void OperatorPolar2ToVector2()
+    {
+        Polar2 polar = new(1f, new() { Radians = Mathf.PI / 4f });
+        Vector2 vector1 = polar;
+        Vector2 vector2 = new(Mathf.Cos(Mathf.PI / 4f), Mathf.Sin(Mathf.PI / 4f));
+        Assert.AreEqual(vector1, vector2);
+    }
+
+    [Test] public void OperatorPolar2ToVector3()
+    {
+        Polar2 polar = new(1f, new() { Radians = Mathf.PI / 4f });
+        Vector3 vector1 = polar;
+        Vector3 vector2 = new(Mathf.Cos(Mathf.PI / 4f), 0,  Mathf.Sin(Mathf.PI / 4f));
+        Assert.AreEqual(vector1, vector2);
+    }
+
+    // Static Methods:
+    //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 }
+
+/*
+Original Author: James Roquelara
+Start Date: 9/14/2022
+
+Resources:
+Angles: https://en.wikipedia.org/wiki/Angle
+Polar Coordinates: https://en.wikipedia.org/wiki/Polar_coordinate_system
+C# Conventions: https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/coding-style/coding-conventions
+Linear Interpolation: https://en.wikipedia.org/wiki/Linear_interpolation 
+Use Ctrl+F to find words on Firefox. You can quickly learn about the names used throughout this class.
+*/

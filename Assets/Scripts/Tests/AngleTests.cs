@@ -306,7 +306,6 @@ public class AngleTests
 
 }
 
-
 /*
 Original Author: James Roquelara
 Start Date: 9/14/2022
