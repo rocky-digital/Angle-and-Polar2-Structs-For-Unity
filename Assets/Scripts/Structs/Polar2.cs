@@ -69,21 +69,31 @@ public struct Polar2
 
     /// <summary> Shorthand for writing new Polar2(0, new() { Degrees = 0f } ); </summary>
     public static Polar2 Zero
-    {
-        get => new (0, new() { Degrees = 0f });
-    }
+    { get => new (0, new() { Degrees = 0f }); }
+
+    /// <summary> Shorthand for writing new Polar2(1f, new() { Degrees = 0f } ); </summary>
+    public static Polar2 UnitZero
+    { get => new(1f, new() { Degrees = 0f }); }
+
+    /// <summary> Shorthand for writing new Polar2(1f, new() { Degrees = 90f } ); </summary>
+    public static Polar2 UnitRight
+    { get => new(1f, new() { Degrees = 90f }); }
+
+    /// <summary> Shorthand for writing new Polar2(1f, new() { Degrees = 180f } ); </summary>
+    public static Polar2 UnitStraight
+    { get => new(1f, new() { Degrees = 180f }); }
+
+    /// <summary> Shorthand for writing new Polar2(1f, new() { Degrees = 180f } ); </summary>
+    public static Polar2 UnitFull
+    { get => new(1f, new() { Degrees = 360f }); }
 
     /// <summary> Shorthand for writing new(float.PositiveInfinity, new() { Degrees = float.PositiveInfinity }); </summary>
     public static Polar2 PositiveInfinity
-    {
-        get => new(float.PositiveInfinity, new() { Degrees = float.PositiveInfinity });
-    }
+    { get => new(float.PositiveInfinity, new() { Degrees = float.PositiveInfinity }); }
 
     /// <summary> Shorthand for writing new(float.NegativeInfinity, new() { Degrees = float.NegativeInfinity }); </summary>
     public static Polar2 NegativeInfinity
-    {
-        get => new(float.NegativeInfinity, new() { Degrees = float.NegativeInfinity });
-    }
+    { get => new(float.NegativeInfinity, new() { Degrees = float.NegativeInfinity }); }
 
     // Public Methods:
     //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
