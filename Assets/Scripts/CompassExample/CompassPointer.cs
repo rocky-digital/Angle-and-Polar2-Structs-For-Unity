@@ -7,7 +7,6 @@ public class CompassPointer : MonoBehaviour
 {
     PlayerInput playerInput;
     public Angle lookAngle;
-    public float degrees;
 
     void Start()
     {
@@ -30,7 +29,6 @@ public class CompassPointer : MonoBehaviour
         lookProcessed.y -= Screen.height / 2f;
         lookProcessed = lookProcessed / (Screen.height / 2f);
         lookAngle = lookProcessed;
-        degrees = lookAngle.Degrees;
         transform.rotation = lookAngle;
     }
 }
