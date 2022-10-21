@@ -33,18 +33,63 @@ public class Polar2Tests
     // Arithmetic Operators:
     //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-    [Test] public void Operator()
+    [Test] public void OperatorAdd()
     {
         Polar2 a = new(2f, new() { Degrees = 2f });
-        Polar2 b = new(2f, new() { Degrees = 2f });
-        Polar2 c = a + b;
+        a += a;
         Polar2 result = new(4f, new() { Degrees = 4f });
-        Assert.AreEqual(result, c);
+        Assert.AreEqual(result, a);
+    }
+
+    [Test] public void OperatorSubtract()
+    {
+        Polar2 a = new(3f, new() { Degrees = 3f });
+        a -= a;
+        Polar2 result = new(0f, new() { Degrees = 0f });
+        Assert.AreEqual(result, a);
+    }
+
+    [Test] public void OperatorMultiplyPolar2ByPolar2()
+    {
+        Polar2 a = new(5f, new() { Degrees = 5f });
+        a *= a;
+        Polar2 result = new(25f, new() { Degrees = 25f });
+        Assert.AreEqual(result, a);
+    }
+    [Test] public void OperatorMultiplyPolar2ByNumber()
+    {
+        Polar2 a = new(6f, new() { Degrees = 6f });
+        Polar2 result = new(42f, new() { Degrees = 42f });
+        Assert.AreEqual(result, a * 7f);
+    }
+    [Test] public void OperatorMultiplyNumber2ByPolar2()
+    {
+        Polar2 a = new(8f, new() { Degrees = 8f });
+        Polar2 result = new(72f, new() { Degrees = 72f });
+        Assert.AreEqual(result, 9 * a);
+    }
+    [Test] public void OperatorDividePolar2ByPolar2()
+    {
+        Polar2 a = new(1f, new() { Degrees = 1f });
+        a /= a;
+        Polar2 result = new(1f, new() { Degrees = 1f });
+        Assert.AreEqual(result, a);
+    }
+    [Test] public void OperatorDividePolar2ByNumber()
+    {
+        Polar2 a = new(2f, new() { Degrees = 2f });
+        Polar2 result = new(0.5f, new() { Degrees = 0.5f });
+        Assert.AreEqual(result, a / 4f);
+    }
+    [Test] public void OperatorRemainder()
+    {
+        Polar2 a = new(6f, new() { Degrees = 6f });
+        a %= a;
+        Polar2 result = new(0, new() { Degrees = 0 });
+        Assert.AreEqual(result, a);
     }
 
     /*
-
-
     */
 
     // Comparison Operators:
