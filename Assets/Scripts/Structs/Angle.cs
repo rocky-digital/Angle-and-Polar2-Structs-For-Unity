@@ -87,59 +87,32 @@ public struct Angle : IEquatable<Angle>
         }
     }
 
-    // Public Methods:
+    // Static Properties:
     //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-    /// <summary> Maps this Angle to the signed interval (-180, 180] degrees or (-pi, pi] radians. </summary> 
-    public void MapToSignedInterval()
-    {
-        Degrees %= 360f;
-        if (Degrees <= -180f)
-            Degrees += 360f;
-        else if (Degrees > 180f)
-            Degrees -= 360f;
-    }
+    /// <summary> Shorthand for writing new Angle() { Degrees = 0 }; </summary>
+    public static Angle Zero
+    { get => new() { Degrees = 0 }; }
 
-    /// <summary> Maps this Angle in to the interval [0, 360) degrees or [0, 2pi) radians. </summary>
-    public void MapToUnsignedInterval()
-    {
-        Degrees %= 360f;
-        if (Degrees < 0)
-            Degrees += 360f;
-    }
+    /// <summary> Shorthand for writing new Angle() { Degrees = 90f }; </summary>
+    public static Angle Right
+    { get => new() { Degrees = 90f }; }
 
-    /// <summary> Returns true if the Angles are equal. Use this comparison method for better performance. </summary>
-    public bool Equals(Angle other)
-    {
-        return Degrees == other.Degrees;
-    }
+    /// <summary> Shorthand for writing new Angle() { Degrees = 180f }; </summary>
+    public static Angle Straight
+    { get => new() { Degrees = 180f }; }
 
-    /// <summary> Returns true if the Angles are equal, but false if the other is not an Angle. </summary> 
-    public override bool Equals(object other)
-    {
-        if (!(other is Angle))
-            return false;
-        else
-            return Equals((Angle)other);
-    }
+    /// <summary> Shorthand for writing new Angle() { Degrees = 360f }; </summary>
+    public static Angle Full
+    { get => new() { Degrees = 360f }; }
 
-    /// <summary> Returns true if the Angles are approximately equal with an Angle tolerance. A float tolerance is ambiguous, i.e. 0.01 degrees != 0.01 radians. </summary>
-    public bool ApproximatelyEquals(Angle other, Angle toleranceAngle)
-    {
-        return Mathf.Abs(Degrees - other.Degrees) <= toleranceAngle.Degrees;
-    }
+    /// <summary> Shorthand for writing new Angle() { Degrees = float.PositiveInfinity }; </summary>
+    public static Angle PositiveInfinity
+    { get => new() { Degrees = float.PositiveInfinity }; }
 
-    /// <summary> GetHashCode was generated to supress a warning. </summary>
-    public override int GetHashCode()
-    {
-        return HashCode.Combine(Degrees);
-    }
-
-    /// <summary> As a string, this returns the Angle in degrees instead of the class name. Useful for Unity Test output. Otherwise, use properties to obtain the other angular units for your string. </summary>
-    public override string ToString()
-    {
-        return Degrees + " degrees";
-    }
+    /// <summary> Shorthand for writing new Angle() { Degrees = float.NegativeInfinity }; </summary>
+    public static Angle NegativeInfinity
+    { get => new() { Degrees = float.NegativeInfinity }; }
 
     // Arithmetic Operators:
     //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -223,32 +196,59 @@ public struct Angle : IEquatable<Angle>
         return Quaternion.Euler(0, -angle.Degrees, 0);
     }
 
-    // Static Properties:
+    // Public Methods:
     //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-    /// <summary> Shorthand for writing new Angle() { Degrees = 0 }; </summary>
-    public static Angle Zero
-    { get => new() { Degrees = 0 }; }
+    /// <summary> Maps this Angle to the signed interval (-180, 180] degrees or (-pi, pi] radians. </summary> 
+    public void MapToSignedInterval()
+    {
+        Degrees %= 360f;
+        if (Degrees <= -180f)
+            Degrees += 360f;
+        else if (Degrees > 180f)
+            Degrees -= 360f;
+    }
 
-    /// <summary> Shorthand for writing new Angle() { Degrees = 90f }; </summary>
-    public static Angle Right
-    { get => new() { Degrees = 90f }; }
+    /// <summary> Maps this Angle in to the interval [0, 360) degrees or [0, 2pi) radians. </summary>
+    public void MapToUnsignedInterval()
+    {
+        Degrees %= 360f;
+        if (Degrees < 0)
+            Degrees += 360f;
+    }
 
-    /// <summary> Shorthand for writing new Angle() { Degrees = 180f }; </summary>
-    public static Angle Straight
-    { get => new() { Degrees = 180f }; }
+    /// <summary> Returns true if the Angles are equal. Use this comparison method for better performance. </summary>
+    public bool Equals(Angle other)
+    {
+        return Degrees == other.Degrees;
+    }
 
-    /// <summary> Shorthand for writing new Angle() { Degrees = 360f }; </summary>
-    public static Angle Full
-    { get => new() { Degrees = 360f }; }
+    /// <summary> Returns true if the Angles are equal, but false if the other is not an Angle. </summary> 
+    public override bool Equals(object other)
+    {
+        if (!(other is Angle))
+            return false;
+        else
+            return Equals((Angle)other);
+    }
 
-    /// <summary> Shorthand for writing new Angle() { Degrees = float.PositiveInfinity }; </summary>
-    public static Angle PositiveInfinity
-    { get => new() { Degrees = float.PositiveInfinity }; }
+    /// <summary> Returns true if the Angles are approximately equal with an Angle tolerance. A float tolerance is ambiguous, i.e. 0.01 degrees != 0.01 radians. </summary>
+    public bool ApproximatelyEquals(Angle other, Angle toleranceAngle)
+    {
+        return Mathf.Abs(Degrees - other.Degrees) <= toleranceAngle.Degrees;
+    }
 
-    /// <summary> Shorthand for writing new Angle() { Degrees = float.NegativeInfinity }; </summary>
-    public static Angle NegativeInfinity
-    { get => new() { Degrees = float.NegativeInfinity }; }
+    /// <summary> GetHashCode was generated to supress a warning. </summary>
+    public override int GetHashCode()
+    {
+        return HashCode.Combine(Degrees);
+    }
+
+    /// <summary> As a string, this returns the Angle in degrees instead of the class name. Useful for Unity Test output. Otherwise, use properties to obtain the other angular units for your string. </summary>
+    public override string ToString()
+    {
+        return Degrees + " degrees";
+    }
 
     // Static Methods:
     // Don't include dependencies on non-UnityEngine classes here. The Angle class should be able to be imported by itself.
@@ -284,5 +284,6 @@ Angles: https://en.wikipedia.org/wiki/Angle
 Polar Coordinates: https://en.wikipedia.org/wiki/Polar_coordinate_system
 C# Conventions: https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/coding-style/coding-conventions
 Linear Interpolation: https://en.wikipedia.org/wiki/Linear_interpolation 
+Unity's Vector2: https://github.com/Unity-Technologies/UnityCsReference/blob/master/Runtime/Export/Math/Vector2.cs
 Use Ctrl+F to find words on Firefox. You can quickly learn about the names used throughout this class.
 */

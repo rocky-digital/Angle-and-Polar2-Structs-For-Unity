@@ -95,46 +95,6 @@ public struct Polar2
     public static Polar2 NegativeInfinity
     { get => new(float.NegativeInfinity, new() { Degrees = float.NegativeInfinity }); }
 
-    // Public Methods:
-    //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-    /// <summary> Maps this Length to the interval [0, infinity) and adds 180 degrees to the Angle. </summary>
-    public void MapMagnitudeToPositiveIntervalAndChangeAngle()
-    {
-        if (Length < 0)
-        {
-            Length = Mathf.Abs(Length);
-            Angle.Degrees += 180f;
-        }
-    }
-
-    /// <summary> Returns true if the polar coordinates are equal. Use this comparison method for better performance. </summary>
-    public bool Equals(Polar2 other)
-    {
-        return (Length == other.Length) && (Angle == other.Angle);
-    }
-
-    /// <summary> Returns true if the polar coordinates are equal, but false if the other is not a Polar2. </summary> 
-    public override bool Equals(object other)
-    {
-        if (!(other is Polar2))
-            return false;
-        else
-            return Equals((Polar2)other);
-    }
-
-    /// <summary> GetHashCode was generated to supress a warning. </summary>
-    public override int GetHashCode()
-    {
-        return HashCode.Combine(Length, Angle);
-    }
-
-    /// <summary> As a string, this returns the Length and Angle in degrees instead of the class name. Useful for Unity Test output. Otherwise, use properties to obtain the other angular units for your string. </summary>
-    public override string ToString()
-    {
-        return Length + " length, " + Angle.Degrees + " degrees";
-    }
-
     // Arithmetic Operators:
     //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -228,6 +188,46 @@ public struct Polar2
             polarCoordinate.Length * Mathf.Sin(polarCoordinate.Angle.Radians));
     }
 
+    // Public Methods:
+    //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    /// <summary> Maps this Length to the interval [0, infinity) and adds 180 degrees to the Angle. </summary>
+    public void MapMagnitudeToPositiveIntervalAndChangeAngle()
+    {
+        if (Length < 0)
+        {
+            Length = Mathf.Abs(Length);
+            Angle.Degrees += 180f;
+        }
+    }
+
+    /// <summary> Returns true if the polar coordinates are equal. Use this comparison method for better performance. </summary>
+    public bool Equals(Polar2 other)
+    {
+        return (Length == other.Length) && (Angle == other.Angle);
+    }
+
+    /// <summary> Returns true if the polar coordinates are equal, but false if the other is not a Polar2. </summary> 
+    public override bool Equals(object other)
+    {
+        if (!(other is Polar2))
+            return false;
+        else
+            return Equals((Polar2)other);
+    }
+
+    /// <summary> GetHashCode was generated to supress a warning. </summary>
+    public override int GetHashCode()
+    {
+        return HashCode.Combine(Length, Angle);
+    }
+
+    /// <summary> As a string, this returns the Length and Angle in degrees instead of the class name. Useful for Unity Test output. Otherwise, use properties to obtain the other angular units for your string. </summary>
+    public override string ToString()
+    {
+        return Length + " length, " + Angle.Degrees + " degrees";
+    }
+
     // Static Methods:
     // Don't include dependencies on non-UnityEngine classes here. The Polar2 class should be able to be imported with only itself and the Angle class.
     //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -258,5 +258,6 @@ Angles: https://en.wikipedia.org/wiki/Angle
 Polar Coordinates: https://en.wikipedia.org/wiki/Polar_coordinate_system
 C# Conventions: https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/coding-style/coding-conventions
 Linear Interpolation: https://en.wikipedia.org/wiki/Linear_interpolation 
+Unity's Vector2: https://github.com/Unity-Technologies/UnityCsReference/blob/master/Runtime/Export/Math/Vector2.cs
 Use Ctrl+F to find words on Firefox. You can quickly learn about the names used throughout this class.
 */
