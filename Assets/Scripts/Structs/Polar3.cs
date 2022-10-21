@@ -68,6 +68,7 @@ public struct Polar3
         }
     }
 
+
     /// <summary> If the Signed Pitch > 90 degrees or < -90 degrees, this returns a Polar3 with a Pitch in the signed interval [-90, 90] degrees and adds 180 degrees to the Yaw (Read Only). </summary>
     public Polar3 SignedPitch
     {
@@ -239,13 +240,12 @@ public struct Polar3
             polar.Length * Mathf.Sin(-polar.Yaw.Radians));
     }
 
-    /*
     /// <summary> Converts an Angle to a Y-axis angle Quaternion in Unity's counterclockwise Y-axis space as viewed from above. Useful for top-down games. </summary>
     public static implicit operator Quaternion(Polar3 polar)
     {
-        return Quaternion.Euler(0, -angle.Degrees, 0);
+        return Quaternion.Euler(polar.Pitch.Degrees, -polar.Yaw.Degrees, 0);
     }
-    */
+    
     // Public Methods:
     //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
