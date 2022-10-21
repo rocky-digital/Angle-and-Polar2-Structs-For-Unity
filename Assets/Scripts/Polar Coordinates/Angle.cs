@@ -245,14 +245,14 @@ public struct Angle : IEquatable<Angle>
     // Don't include dependencies on other classes in static methods. The Angle class should be able to be imported by itself and the other coordinate classes.
     //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-    /// <summary> Linearly interpolates between two Polar2s. Lerp formula derived from: https://en.wikipedia.org/wiki/Linear_interpolation </summary>
+    /// <summary> Linearly interpolates between two Angles. Lerp formula derived from: https://en.wikipedia.org/wiki/Linear_interpolation </summary>
     public static Angle Lerp(Angle from, Angle to, float alpha)
     {
         alpha = Mathf.Clamp01(alpha);
         return from + (alpha * (to - from));
     }
 
-    /// <summary> Linearly interpolates between two Polar2s without clamping the alpha to [0, 1]. Lerp formula derived from: https://en.wikipedia.org/wiki/Linear_interpolation </summary>
+    /// <summary> Linearly interpolates between two Angles without clamping the alpha to [0, 1]. Lerp formula derived from: https://en.wikipedia.org/wiki/Linear_interpolation </summary>
     public static Angle LerpUnclamped(Angle from, Angle to, float alpha)
     {
         return from + (alpha * (to - from));
