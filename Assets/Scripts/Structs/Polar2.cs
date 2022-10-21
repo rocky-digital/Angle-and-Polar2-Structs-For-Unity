@@ -240,7 +240,7 @@ public struct Polar2
     }
 
     /// <summary> Linearly interpolates between two Polar2s, component-wise, without clamping the alpha to [0, 1]. Lerp formula derived from: https://en.wikipedia.org/wiki/Linear_interpolation </summary>
-    public static Polar2 LerpLerpUnclamped(Polar2 fromPoint, Polar2 toPoint, float alpha)
+    public static Polar2 LerpUnclamped(Polar2 fromPoint, Polar2 toPoint, float alpha)
     {
         return fromPoint + (alpha * (toPoint - fromPoint));
     }
