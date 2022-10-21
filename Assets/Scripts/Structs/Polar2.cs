@@ -64,6 +64,27 @@ public struct Polar2
         }
     }
 
+    // Static Properties:
+    //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    /// <summary> Shorthand for writing new Polar2(0, new() { Degrees = 0f } ); </summary>
+    public static Polar2 Zero
+    {
+        get => new (0, new() { Degrees = 0f });
+    }
+
+    /// <summary> Shorthand for writing new(float.PositiveInfinity, new() { Degrees = float.PositiveInfinity }); </summary>
+    public static Polar2 PositiveInfinity
+    {
+        get => new(float.PositiveInfinity, new() { Degrees = float.PositiveInfinity });
+    }
+
+    /// <summary> Shorthand for writing new(float.NegativeInfinity, new() { Degrees = float.NegativeInfinity }); </summary>
+    public static Polar2 NegativeInfinity
+    {
+        get => new(float.NegativeInfinity, new() { Degrees = float.NegativeInfinity });
+    }
+
     // Public Methods:
     //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 

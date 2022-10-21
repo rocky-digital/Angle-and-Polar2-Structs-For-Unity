@@ -242,6 +242,14 @@ public struct Angle : IEquatable<Angle>
     public static Angle Full
     { get => new() { Degrees = 360f }; }
 
+    /// <summary> Shorthand for writing new Angle() { Degrees = float.PositiveInfinity }; </summary>
+    public static Angle PositiveInfinity
+    { get => new() { Degrees = float.PositiveInfinity }; }
+
+    /// <summary> Shorthand for writing new Angle() { Degrees = float.NegativeInfinity }; </summary>
+    public static Angle NegativeInfinity
+    { get => new() { Degrees = float.NegativeInfinity }; }
+
     // Static Methods:
     // Don't include dependencies on non-UnityEngine classes here. The Angle class should be able to be imported by itself.
     //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
