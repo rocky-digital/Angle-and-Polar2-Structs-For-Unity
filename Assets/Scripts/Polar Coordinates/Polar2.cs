@@ -5,7 +5,7 @@ using UnityEngine;
 
 /// <summary> 
 /// Representation of a 2D polar coordinate. 
-/// Use object initializers to define an Angle because there is no constructor.
+/// Use object initializers to define the Angle component.
 /// These coordinates do not exactly represent Cartesian coordinates, so be wary using arithmetic operators without acessing properties.
 /// Use properties to obtain unique coordinates. Loosely modeled after Unity's Vector2 struct for best practices. </summary>
 public struct Polar2
@@ -83,7 +83,7 @@ public struct Polar2
         return (Length == other.Length) && (Angle == other.Angle);
     }
 
-    /// <summary> Returns true if the polar coordinates are equal. </summary> 
+    /// <summary> Returns true if the polar coordinates are equal, but false if the other is not a Polar2. </summary> 
     public override bool Equals(object other)
     {
         if (!(other is Polar2))
@@ -197,7 +197,7 @@ public struct Polar2
     }
 
     // Static Methods:
-    // Don't include dependencies on other classes in static methods. The Polar2 class should be able to be imported with only itself and the other coordinate classes.
+    // Don't include dependencies on other classes in static methods. The Polar2 class should be able to be imported with only itself and the Angle class.
     //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
     /// <summary> Lerps between two polar coordinates, component-wise. </summary>

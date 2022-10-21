@@ -242,7 +242,7 @@ public struct Angle : IEquatable<Angle>
     { get => new() { Degrees = 360f }; }
 
     // Static Methods:
-    // Don't include dependencies on other classes in static methods. The Angle class should be able to be imported by itself and the other coordinate classes.
+    // Don't include dependencies on other classes in static methods. The Angle class should be able to be imported by itself.
     //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
     /// <summary> Linearly interpolates between two Angles. Lerp formula derived from: https://en.wikipedia.org/wiki/Linear_interpolation </summary>
