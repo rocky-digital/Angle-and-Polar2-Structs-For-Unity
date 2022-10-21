@@ -69,7 +69,7 @@ public struct Polar3
     }
 
 
-    /// <summary> If the Signed Pitch > 90 degrees or < -90 degrees, this returns a Polar3 with a Pitch in the signed interval [-90, 90] degrees and adds 180 degrees to the Yaw (Read Only). </summary>
+    /// <summary> If the Signed Pitch is greater than 90 degrees or less than -90 degrees, this returns a Polar3 with a Pitch in the signed interval [-90, 90] degrees and adds 180 degrees to the Yaw (Read Only). </summary>
     public Polar3 SignedPitch
     {
         get
@@ -80,7 +80,7 @@ public struct Polar3
         }
     }
 
-    /// <summary> If the Signed Pitch > 90 degrees or < -90 degrees, this returns a Polar3 with a Pitch in the unsigned interval [0, 90], [270, 360) degrees and adds 180 degrees to the Yaw (Read Only). </summary>
+    /// <summary> If the Signed Pitch is greater than 90 degrees or less than -90 degrees, this returns a Polar3 with a Pitch in the unsigned interval [0, 90] || [270, 360) degrees and adds 180 degrees to the Yaw (Read Only). </summary>
     public Polar3 UnsignedPitch
     {
         get
