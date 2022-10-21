@@ -230,17 +230,22 @@ public struct Polar3
             polar.Length * Mathf.Sin(polar.Yaw.Radians));
     }
 
-    /// <summary> Converts a Polar3 to a Vector3 in Unity's space. </summary>
+    /// <summary> Converts a Polar3 to a Vector3 in Unity's space. The Length and Yaw derive the XZ components, and the Length and Pitch derive the Y component. </summary>
     public static implicit operator Vector3(Polar3 polar)
     {
         return new Vector3(
             polar.Length * Mathf.Cos(-polar.Yaw.Radians),
-            0,
+            polar.Length * Mathf.Sin(polar.Pitch.Radians),
             polar.Length * Mathf.Sin(-polar.Yaw.Radians));
     }
 
-    // TODO: quaternion conversion
-
+    /*
+    /// <summary> Converts an Angle to a Y-axis angle Quaternion in Unity's counterclockwise Y-axis space as viewed from above. Useful for top-down games. </summary>
+    public static implicit operator Quaternion(Polar3 polar)
+    {
+        return Quaternion.Euler(0, -angle.Degrees, 0);
+    }
+    */
     // Public Methods:
     //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 

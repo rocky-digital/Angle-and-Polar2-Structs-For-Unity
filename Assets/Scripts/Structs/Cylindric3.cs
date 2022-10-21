@@ -23,13 +23,13 @@ public struct Cylindric3
     // Component Properties:
     //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-    /// <summary> The magnitude, radius, or radial distance of the cylindrical coordinate. </summary>
+    /// <summary> The magnitude, radius, or radial distance of the Cylindric3. </summary>
     public float Length { get; set; }
 
-    /// <summary> The height of the cylindrical coordinate. </summary>
+    /// <summary> The height of the Cylindric3. </summary>
     public float Height { get; set; }
 
-    /// <summary> Angular component of the cylindrical coordinate. Not a property due to CS1612. </summary>
+    /// <summary> Angular component of the Cylindric3. Not a property due to CS1612. </summary>
     public Angle Angle;
 
     // Read Only Properties:
@@ -189,7 +189,7 @@ public struct Cylindric3
     // Don't include dependencies on non-UnityEngine classes here. The Cylindric3 class should be able to be imported with only itself and the Angle class.
     //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-    /// <summary> Converts a Vector2 to a Cylindric3. The X and Y derive the Length and Angle components. </summary>
+    /// <summary> Converts a Vector2 to a Cylindric3. The XY components derive the Length and Angle components. </summary>
     public static implicit operator Cylindric3(Vector2 vector)
     {
         return new()
@@ -207,7 +207,7 @@ public struct Cylindric3
             cylindric.Length * Mathf.Sin(cylindric.Angle.Radians));
     }
 
-    /// <summary> Converts a Cylindric3 to a Vector3 in Unity's space. The Height equals the Y axis, and the Length and Angle derive the XZ components. </summary>
+    /// <summary> Converts a Cylindric3 to a Vector3 in Unity's space. The Height equals the Y component, and the Length and Angle derive the XZ components. </summary>
     public static implicit operator Vector3(Cylindric3 cylindric)
     {
         return new Vector3(

@@ -22,10 +22,10 @@ public struct Polar2
     // Component Properties:
     //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-    /// <summary> The magnitude, radius, or radial distance of the polar coordinate. </summary>
+    /// <summary> The magnitude, radius, or radial distance of the Polar2. </summary>
     public float Length { get; set; }
 
-    /// <summary> Angular component of the polar coordinate. Not a property due to CS1612. </summary>
+    /// <summary> Angular component of the Polar2. Not a property due to CS1612. </summary>
     public Angle Angle;
 
     // Read Only Properties:
@@ -36,9 +36,9 @@ public struct Polar2
     {
         get
         {
-            Polar2 polarCoordinate = this;
-            polarCoordinate.MapMagnitudeToPositiveIntervalAndChangeAngle();
-            return polarCoordinate;
+            Polar2 polar = this;
+            polar.MapMagnitudeToPositiveIntervalAndChangeAngle();
+            return polar;
         }
     }
 
@@ -47,9 +47,9 @@ public struct Polar2
     {
         get
         {
-            Polar2 polarCoordinate = this;
-            polarCoordinate.Angle.MapToUnsignedInterval();
-            return polarCoordinate;
+            Polar2 polar = this;
+            polar.Angle.MapToUnsignedInterval();
+            return polar;
         }
     }
 
@@ -149,11 +149,11 @@ public struct Polar2
     // Comparison Operators:
     //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-    /// <summary> Returns true if the polar coordinates are equal. </summary>
+    /// <summary> Returns true if the Polar2s are equal. </summary>
     public static bool operator ==(Polar2 lhs, Polar2 rhs)
     { return (lhs.Length == rhs.Length) && (lhs.Angle == rhs.Angle); }
 
-    /// <summary> Returns true if the polar coordinates are not equal. </summary>
+    /// <summary> Returns true if the Polar2s are not equal. </summary>
     public static bool operator !=(Polar2 lhs, Polar2 rhs)
     { return (lhs.Length != rhs.Length) || (lhs.Angle != rhs.Angle); }
 
@@ -172,20 +172,20 @@ public struct Polar2
     }
 
     /// <summary> Converts a Polar2 to a Vector2. </summary>
-    public static implicit operator Vector2(Polar2 polarCoordinate)
+    public static implicit operator Vector2(Polar2 polar)
     {
         return new Vector2(
-            polarCoordinate.Length * Mathf.Cos(polarCoordinate.Angle.Radians),
-            polarCoordinate.Length * Mathf.Sin(polarCoordinate.Angle.Radians));
+            polar.Length * Mathf.Cos(polar.Angle.Radians),
+            polar.Length * Mathf.Sin(polar.Angle.Radians));
     }
 
-    /// <summary> Converts a Polar2 to a Vector3 on the XZ plane as viewed from above. Useful for top-down games. </summary>
-    public static implicit operator Vector3(Polar2 polarCoordinate)
+    /// <summary> Converts a Polar2 to a Vector3 in Unity's space. The Length and Angle derive the XZ components. Useful for top-down games. </summary>
+    public static implicit operator Vector3(Polar2 polar)
     {
         return new Vector3(
-            polarCoordinate.Length * Mathf.Cos(polarCoordinate.Angle.Radians),
+            polar.Length * Mathf.Cos(polar.Angle.Radians),
             0,
-            polarCoordinate.Length * Mathf.Sin(polarCoordinate.Angle.Radians));
+            polar.Length * Mathf.Sin(polar.Angle.Radians));
     }
 
     // Public Methods:
@@ -201,13 +201,13 @@ public struct Polar2
         }
     }
 
-    /// <summary> Returns true if the polar coordinates are equal. Use this comparison method for better performance. </summary>
+    /// <summary> Returns true if the Polar2s are equal. Use this comparison method for better performance. </summary>
     public bool Equals(Polar2 other)
     {
         return (Length == other.Length) && (Angle == other.Angle);
     }
 
-    /// <summary> Returns true if the polar coordinates are equal, but false if the other is not a Polar2. </summary> 
+    /// <summary> Returns true if the Polar2s are equal, but false if the other is not a Polar2. </summary> 
     public override bool Equals(object other)
     {
         if (!(other is Polar2))
