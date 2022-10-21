@@ -89,7 +89,8 @@ public struct Polar2
         if (!(other is Polar2))
             return false;
         else
-            return Equals(other);
+            return Equals((Polar2)other);
+        // Error: Stack overflow. Interesting.
     }
 
     /// <summary> GetHashCode was generated to supress a warning. </summary>

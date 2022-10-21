@@ -120,7 +120,7 @@ public struct Angle : IEquatable<Angle>
         if (!(other is Angle))
             return false;
         else
-            return Equals(other);
+            return Equals((Angle)other);
     }
 
     /// <summary> Returns true if the Angles are approximately equal with an Angle tolerance. A float tolerance is ambiguous, i.e. 0.01 degrees != 0.01 radians. </summary>
