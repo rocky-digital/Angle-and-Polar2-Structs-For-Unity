@@ -6,11 +6,10 @@ using UnityEngine.InputSystem;
 public class CompassPointer : MonoBehaviour
 {
     PlayerInput playerInput;
-    public Angle lookAngle;
+    public Polar2 polar;
 
     void Start()
     {
-        lookAngle = new();
         playerInput = GetComponent<PlayerInput>();
     }
 
@@ -28,7 +27,10 @@ public class CompassPointer : MonoBehaviour
         lookProcessed.x -= Screen.width / 2f;
         lookProcessed.y -= Screen.height / 2f;
         lookProcessed = lookProcessed / (Screen.height / 2f);
-        lookAngle = lookProcessed;
-        transform.rotation = lookAngle;
+
+        // Vector to Polar 2 conversion operator
+        polar.Angle = lookProcessed;
+        // Angle to Quaternion conversion operator
+        transform.rotation = polar.Angle;
     }
 }

@@ -11,7 +11,7 @@ public class DebugHUD : MonoBehaviour
 
     // Private variables
     public CompassPointer compass;
-    public Angle lookAngle;
+    public Polar2 polar;
     private Label angleNamesLabel;
     private Label unsignedAnglesLabel;
     private Label signedAnglesLabel;
@@ -23,8 +23,6 @@ public class DebugHUD : MonoBehaviour
 
     private void OnEnable()
     {
-        lookAngle = new();
-        lookAngle = GetComponent<CompassPointer>().lookAngle;
         var rootVisualElement = GetComponent<UIDocument>().rootVisualElement;
         angleNamesLabel = rootVisualElement.Q<Label>("AngleNamesLabel");
         angleNamesLabel.text =
@@ -50,38 +48,38 @@ public class DebugHUD : MonoBehaviour
     private void Update()
     {
         secondsPerLabelUpdate = 1 / (float)labelUpdatesPerSecond;
-        lookAngle = GetComponent<CompassPointer>().lookAngle;
+        polar = GetComponent<CompassPointer>().polar;
         currentSecondsBeforeLabelUpdate -= Time.deltaTime;
         if (currentSecondsBeforeLabelUpdate <= 0)
         {
             unsignedAnglesLabel.text =
                 "Unsigned\n" +
-                lookAngle.Unsigned.Degrees.ToString("F2") + "\n" +
-                lookAngle.Unsigned.Radians.ToString("F2") + "\n" +
-                lookAngle.Unsigned.Arcminutes.ToString("F2") + "\n" +
-                lookAngle.Unsigned.Arcseconds.ToString("F2") + "\n" +
-                lookAngle.Unsigned.Grads.ToString("F2") + "\n" +
-                lookAngle.Unsigned.Turns.ToString("F2") + "\n" +
-                lookAngle.Unsigned.HourAngles.ToString("F2") + "\n" +
-                lookAngle.Unsigned.Winds.ToString("F2") + "\n" +
-                lookAngle.Unsigned.Milliradians.ToString("F2") + "\n" +
-                lookAngle.Unsigned.BinaryDegrees.ToString("F2") + "\n" +
-                lookAngle.Unsigned.Quadrants.ToString("F2") + "\n" +
-                lookAngle.Unsigned.Sextants.ToString("F2");
+                polar.Angle.Unsigned.Degrees.ToString("F2") + "\n" +
+                polar.Angle.Unsigned.Radians.ToString("F2") + "\n" +
+                polar.Angle.Unsigned.Arcminutes.ToString("F2") + "\n" +
+                polar.Angle.Unsigned.Arcseconds.ToString("F2") + "\n" +
+                polar.Angle.Unsigned.Grads.ToString("F2") + "\n" +
+                polar.Angle.Unsigned.Turns.ToString("F2") + "\n" +
+                polar.Angle.Unsigned.HourAngles.ToString("F2") + "\n" +
+                polar.Angle.Unsigned.Winds.ToString("F2") + "\n" +
+                polar.Angle.Unsigned.Milliradians.ToString("F2") + "\n" +
+                polar.Angle.Unsigned.BinaryDegrees.ToString("F2") + "\n" +
+                polar.Angle.Unsigned.Quadrants.ToString("F2") + "\n" +
+                polar.Angle.Unsigned.Sextants.ToString("F2");
             signedAnglesLabel.text =
                 "Signed\n" +
-                lookAngle.Signed.Degrees.ToString("F2") + "\n" +
-                lookAngle.Signed.Radians.ToString("F2") + "\n" +
-                lookAngle.Signed.Arcminutes.ToString("F2") + "\n" +
-                lookAngle.Signed.Arcseconds.ToString("F2") + "\n" +
-                lookAngle.Signed.Grads.ToString("F2") + "\n" +
-                lookAngle.Signed.Turns.ToString("F2") + "\n" +
-                lookAngle.Signed.HourAngles.ToString("F2") + "\n" +
-                lookAngle.Signed.Winds.ToString("F2") + "\n" +
-                lookAngle.Signed.Milliradians.ToString("F2") + "\n" +
-                lookAngle.Signed.BinaryDegrees.ToString("F2") + "\n" +
-                lookAngle.Signed.Quadrants.ToString("F2") + "\n" +
-                lookAngle.Signed.Sextants.ToString("F2");
+                polar.Angle.Signed.Degrees.ToString("F2") + "\n" +
+                polar.Angle.Signed.Radians.ToString("F2") + "\n" +
+                polar.Angle.Signed.Arcminutes.ToString("F2") + "\n" +
+                polar.Angle.Signed.Arcseconds.ToString("F2") + "\n" +
+                polar.Angle.Signed.Grads.ToString("F2") + "\n" +
+                polar.Angle.Signed.Turns.ToString("F2") + "\n" +
+                polar.Angle.Signed.HourAngles.ToString("F2") + "\n" +
+                polar.Angle.Signed.Winds.ToString("F2") + "\n" +
+                polar.Angle.Signed.Milliradians.ToString("F2") + "\n" +
+                polar.Angle.Signed.BinaryDegrees.ToString("F2") + "\n" +
+                polar.Angle.Signed.Quadrants.ToString("F2") + "\n" +
+                polar.Angle.Signed.Sextants.ToString("F2");
             currentSecondsBeforeLabelUpdate %= secondsPerLabelUpdate;
             currentSecondsBeforeLabelUpdate += secondsPerLabelUpdate;
         }
