@@ -235,6 +235,8 @@ GameObject:
   - component: {fileID: 588684212}
   - component: {fileID: 588684216}
   - component: {fileID: 588684217}
+  - component: {fileID: 588684219}
+  - component: {fileID: 588684218}
   m_Layer: 0
   m_Name: Compass Pointer
   m_TagString: Untagged
@@ -415,6 +417,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93d67b49e21248a4ead3dd7d19251072, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &588684218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 588684211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PanelSettings: {fileID: 11400000, guid: b57225a69886c674c95ecc7110314fa5, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: 2ddc53ef489863d4f8a0b6c3876f8cdd, type: 3}
+  m_SortingOrder: 0
+--- !u!114 &588684219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 588684211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2119641152eadb14e8b59d82787c4283, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  labelUpdatesPerSecond: 15
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0

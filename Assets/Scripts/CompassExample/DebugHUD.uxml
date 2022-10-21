@@ -1,0 +1,6 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement style="opacity: 1; color: rgb(255, 255, 255); position: relative;">
+        <ui:Label text="Angle Class Showcase" display-tooltip-when-elided="true" style="position: relative; top: auto; left: auto; -unity-text-align: upper-left; bottom: auto; padding-right: 0; padding-left: 0; padding-top: 0; padding-bottom: 0; align-items: flex-start; margin-left: 10px; margin-top: 10px; margin-right: 10px; margin-bottom: 10px;" />
+        <ui:Label text="FPS: 0" display-tooltip-when-elided="true" name="FPS_Label" style="position: relative; top: auto; left: auto; -unity-text-align: upper-left; bottom: auto; padding-right: 0; padding-left: 0; padding-top: 0; padding-bottom: 0; align-items: flex-start; margin-left: 10px; margin-top: 10px; margin-right: 10px; margin-bottom: 10px;" />
+    </ui:VisualElement>
+</ui:UXML>
