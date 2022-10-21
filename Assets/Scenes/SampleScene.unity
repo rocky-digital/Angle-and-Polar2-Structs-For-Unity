@@ -417,7 +417,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93d67b49e21248a4ead3dd7d19251072, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  degrees: 0
 --- !u!114 &588684218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -446,7 +445,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2119641152eadb14e8b59d82787c4283, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  labelUpdatesPerSecond: 15
+  labelUpdatesPerSecond: 144
   compass: {fileID: 588684217}
 --- !u!1 &705507993
 GameObject:
