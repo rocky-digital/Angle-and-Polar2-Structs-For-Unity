@@ -10,8 +10,10 @@ public class DebugHUD : MonoBehaviour
     [Range(1, 15)] public int labelUpdatesPerSecond = 15;
 
     // Private variables
+    public CompassPointer compass;
+    public Angle angle1;
     private Label fpsLabel;
-    private int framesPerSecond;
+    
 
     // Dependent variables
     private float secondsPerLabelUpdate;
@@ -19,20 +21,23 @@ public class DebugHUD : MonoBehaviour
 
     private void OnEnable()
     {
+        angle1 = new();
         var rootVisualElement = GetComponent<UIDocument>().rootVisualElement;
         fpsLabel = rootVisualElement.Q<Label>("FPS_Label");
-        framesPerSecond = 0;
         secondsPerLabelUpdate = 1 / (float)labelUpdatesPerSecond;
         currentSecondsBeforeLabelUpdate = 0;
     }
 
     private void Update()
     {
-        framesPerSecond = (int) (1 / Time.deltaTime);
+        Debug.Log("degrees: " + compass.degrees);
+        Debug.Log("lookAngle: " + compass.lookAngle);
         currentSecondsBeforeLabelUpdate -= Time.deltaTime;
         if (currentSecondsBeforeLabelUpdate <= 0)
         {
-            fpsLabel.text = $"FPS: {framesPerSecond}\n";
+            fpsLabel.text = "Angle Measurements:\n" +
+                "Degrees: " + compass.lookAngle.Degrees.ToString() + "\n" +
+                "Radians: " + compass.lookAngle.Radians.ToString() + "\n";
             currentSecondsBeforeLabelUpdate %= secondsPerLabelUpdate;
             currentSecondsBeforeLabelUpdate += secondsPerLabelUpdate;
         }
