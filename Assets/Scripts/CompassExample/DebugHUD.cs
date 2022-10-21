@@ -15,6 +15,7 @@ public class DebugHUD : MonoBehaviour
     private Label angleNamesLabel;
     private Label unsignedAnglesLabel;
     private Label signedAnglesLabel;
+    private Label lengthLabel;
 
 
     // Dependent variables
@@ -41,15 +42,18 @@ public class DebugHUD : MonoBehaviour
             "Sextants";
         unsignedAnglesLabel = rootVisualElement.Q<Label>("UnsignedAnglesLabel");
         signedAnglesLabel = rootVisualElement.Q<Label>("SignedAnglesLabel");
+        lengthLabel = rootVisualElement.Q<Label>("LengthLabel");
         secondsPerLabelUpdate = 1 / (float)labelUpdatesPerSecond;
         currentSecondsBeforeLabelUpdate = 0;
     }
 
     private void Update()
     {
-        secondsPerLabelUpdate = 1 / (float)labelUpdatesPerSecond;
         polar = GetComponent<CompassPointer>().polar;
+
+        secondsPerLabelUpdate = 1 / (float)labelUpdatesPerSecond;
         currentSecondsBeforeLabelUpdate -= Time.deltaTime;
+
         if (currentSecondsBeforeLabelUpdate <= 0)
         {
             unsignedAnglesLabel.text =
@@ -80,6 +84,10 @@ public class DebugHUD : MonoBehaviour
                 polar.Angle.Signed.BinaryDegrees.ToString("F2") + "\n" +
                 polar.Angle.Signed.Quadrants.ToString("F2") + "\n" +
                 polar.Angle.Signed.Sextants.ToString("F2");
+            lengthLabel.text =
+                "Length/Magnitude\n" +
+                polar.Length.ToString("F2");
+
             currentSecondsBeforeLabelUpdate %= secondsPerLabelUpdate;
             currentSecondsBeforeLabelUpdate += secondsPerLabelUpdate;
         }

@@ -29,7 +29,7 @@ public class CompassPointer : MonoBehaviour
         lookProcessed = lookProcessed / (Screen.height / 2f);
 
         // Vector to Polar 2 conversion operator
-        polar.Angle = lookProcessed;
+        polar = lookProcessed;
         // Angle to Quaternion conversion operator
         transform.rotation = polar.Angle;
     }
