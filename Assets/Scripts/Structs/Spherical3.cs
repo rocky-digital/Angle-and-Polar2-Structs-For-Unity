@@ -210,15 +210,18 @@ public struct Spherical3
     public static implicit operator Vector3(Spherical3 polar)
     {
         return new Vector3(
-            0, // X zero angle
-            0, // Y up
-            0); // Z right angle
+            polar.Length * Mathf.Sin(polar.Azimuth.Radians) * Mathf.Sin(polar.Zenith.Radians), // X,
+            polar.Length * Mathf.Cos(polar.Azimuth.Radians) * Mathf.Sin(polar.Zenith.Radians), // Y
+            polar.Length * Mathf.Sin(polar.Azimuth.Radians) * Mathf.Sin(polar.Zenith.Radians)); // Z
     }
 
     /// <summary> TODO. </summary>
     public static implicit operator Quaternion(Spherical3 polar)
     {
-        return Quaternion.Euler(polar.Zenith.Degrees, -polar.Azimuth.Degrees, 0);
+        return Quaternion.Euler(
+            0, // zero angle
+            0, // up angle, acw
+            0); // right angle
     }
 
     // Public Methods:
