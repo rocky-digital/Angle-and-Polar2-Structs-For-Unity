@@ -204,35 +204,18 @@ public struct Spherical3
     // Don't include dependencies on non-UnityEngine classes here. The Spherical3 class should be able to be imported with only itself and the other related coordinate structs.
     //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-    /// <summary> Converts a Vector2 to a Spherical3. </summary>
-    public static implicit operator Spherical3(Vector2 vector)
-    {
-        return new()
-        {
-            Length = vector.magnitude,
-            Azimuth = new() { Radians = Mathf.Atan2(vector.y, vector.x) },
-            Zenith = new()
-        };
-    }
+    // TODO: Fix conversion operators.
 
-    /// <summary> Converts a Spherical3 to a Vector2. </summary>
-    public static implicit operator Vector2(Spherical3 polar)
-    {
-        return new Vector2(
-            polar.Length * Mathf.Cos(polar.Azimuth.Radians),
-            polar.Length * Mathf.Sin(polar.Azimuth.Radians));
-    }
-
-    /// <summary> Converts a Spherical3 to a Vector3 in Unity's space. The Length and Azimuth derive the XZ components, and the Length and Zenith derive the Y component. </summary>
+    /// <summary> Converts a Spherical3 to a Vector3 in Unity's space. The Length, Azimuth, and Zenith together derive XYZ. </summary>
     public static implicit operator Vector3(Spherical3 polar)
     {
         return new Vector3(
-            polar.Length * Mathf.Cos(-polar.Azimuth.Radians),
-            polar.Length * Mathf.Sin(polar.Zenith.Radians),
-            polar.Length * Mathf.Sin(-polar.Azimuth.Radians));
+            0, // X zero angle
+            0, // Y up
+            0); // Z right angle
     }
 
-    /// <summary> Converts an Angle to a Y-axis angle Quaternion in Unity's counterclockwise Y-axis space as viewed from above. Useful for top-down games. </summary>
+    /// <summary> TODO. </summary>
     public static implicit operator Quaternion(Spherical3 polar)
     {
         return Quaternion.Euler(polar.Zenith.Degrees, -polar.Azimuth.Degrees, 0);

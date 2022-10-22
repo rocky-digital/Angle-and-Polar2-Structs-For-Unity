@@ -26,7 +26,7 @@ public class CompassPointer : MonoBehaviour
         Vector2 lookProcessed = look;
         lookProcessed.x -= Screen.width / 2f;
         lookProcessed.y -= Screen.height / 2f;
-        lookProcessed = lookProcessed / (Screen.height / 2f);
+        lookProcessed = lookProcessed / (Screen.width / 2f);
 
         // Vector to Polar 2 conversion operator
         polar = lookProcessed;
