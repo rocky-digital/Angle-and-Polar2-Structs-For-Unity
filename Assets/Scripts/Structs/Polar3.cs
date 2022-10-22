@@ -23,13 +23,13 @@ public struct Polar3
     // Component Properties:
     //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-    /// <summary> The magnitude, radius, or radial distance of the polar coordinate. </summary>
+    /// <summary> The magnitude, radius, or radial distance of the Polar3. </summary>
     public float Length { get; set; }
 
-    /// <summary> Yaw Angle of the polar coordinate. Not a property due to CS1612. </summary>
+    /// <summary> Yaw Angle of the Polar3. Not a property due to CS1612. </summary>
     public Angle Yaw;
 
-    /// <summary> Pitch Angle of the polar coordinate. Not a property due to CS1612. </summary>
+    /// <summary> Pitch Angle of the Polar3. Not a property due to CS1612. </summary>
     public Angle Pitch;
 
     // Read Only Properties:
@@ -79,7 +79,7 @@ public struct Polar3
         }
     }
 
-    /// <summary> If the Signed Pitch is greater than 90 degrees or less than -90 degrees, this returns a Polar3 with a Pitch in the unsigned interval [0, 90] || [270, 360) degrees and adds 180 degrees to the Yaw (Read Only). </summary>
+    /// <summary> If the Signed Pitch is greater than 90 degrees or less than -90 degrees, this returns a Polar3 with a Pitch in the unsigned interval [0, 90] or [270, 360) degrees and adds 180 degrees to the Yaw (Read Only). </summary>
     public Polar3 UnsignedPitch
     {
         get
@@ -314,7 +314,7 @@ public struct Polar3
     /// <summary> As a string, this returns the Length and Angle in degrees instead of the class name. Useful for Unity Test output. Otherwise, use properties to obtain the other angular units for your string. </summary>
     public override string ToString()
     {
-        return Length + " length, " + Yaw.Degrees + " yaw degrees" + Pitch.Degrees + " pitch degrees";
+        return Length + " length, " + Yaw.Degrees + " yaw degrees," + Pitch.Degrees + " pitch degrees";
     }
 
     // Static Methods:
